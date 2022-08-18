@@ -1,15 +1,15 @@
 import { Global } from '@emotion/react';
 
-const Fonts = () => {
+const Fonts = () => (
   <Global
     styles={`
-    @font-face {
-        font-family: 'Pretendard-Regular';
-        font-weight: 400;
-        font-style: normal;
-        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    }`}
-  />;
-};
+    @import url("//cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css");
+
+    body {
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    }
+    `}
+  />
+);
 
 export default Fonts;
