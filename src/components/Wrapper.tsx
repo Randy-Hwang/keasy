@@ -15,7 +15,6 @@ const Wrapper = (props: WrapperProps) => {
       border="1px solid black"
       w="834px"
       h="1194px"
-      fontFamily={`Pretendard-Regular, sans-serif`}
     >
       {props.children}
     </Box>
