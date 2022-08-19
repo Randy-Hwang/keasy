@@ -12,7 +12,7 @@ const Wrapper = (props: WrapperProps) => {
       mx="auto"
       alignItems="center"
       justifyContent="center"
-      border="1px solid black"
+      border="1px solid gray"
       w="834px"
       h="1194px"
     >

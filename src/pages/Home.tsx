@@ -11,7 +11,7 @@ const Home = () => {
       <HeaderBlue />
       <Container position="absolute" w={370} h={159} left={51} top={184}>
         <Text
-          fontWeight={400}
+          fontWeight={500}
           fontSize={33}
           textColor="#121212"
           lineHeight="53px"
@@ -20,7 +20,7 @@ const Home = () => {
           안녕하세요!
         </Text>
         <Text
-          fontWeight={400}
+          fontWeight={500}
           fontSize={33}
           textColor="#121212"
           lineHeight="53px"
@@ -29,7 +29,7 @@ const Home = () => {
           저는 키오스크 시뮬레이터
         </Text>
         <Text
-          fontWeight={400}
+          fontWeight={500}
           fontSize={33}
           textColor="#121212"
           lineHeight="53px"
@@ -96,6 +96,7 @@ const Home = () => {
         top={615}
         bgColor="#2C5282"
         borderRadius={20}
+        cursor="pointer"
         onClick={() => navigate('/how-to-use')}
       ></Box>
       <Text
@@ -109,6 +110,7 @@ const Home = () => {
         w={145}
         h={53}
         cursor="pointer"
+        onClick={() => navigate('/how-to-use')}
       >
         확인하러 가기 &gt;
       </Text>
@@ -133,6 +135,8 @@ const Home = () => {
         top={826}
         left={68}
         bgColor="#D9D9D9"
+        cursor="pointer"
+        onClick={() => navigate('/cafe')}
       ></Box>
       <Text
         position="absolute"
@@ -143,6 +147,8 @@ const Home = () => {
         fontWeight={600}
         fontSize={40}
         color="#000000"
+        cursor="pointer"
+        onClick={() => navigate('/cafe')}
       >
         카페
       </Text>
