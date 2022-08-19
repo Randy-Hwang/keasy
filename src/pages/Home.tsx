@@ -9,28 +9,31 @@ const Home = () => {
   return (
     <Wrapper>
       <HeaderBlue />
-      <Container position="absolute" w={361} h={159} left={68} top={184}>
+      <Container position="absolute" w={370} h={159} left={51} top={184}>
         <Text
           fontWeight={400}
-          fontSize={36}
+          fontSize={33}
           textColor="#121212"
-          lineHeight="147%"
+          lineHeight="53px"
+          fontStyle="normal"
         >
           안녕하세요!
         </Text>
         <Text
           fontWeight={400}
-          fontSize={36}
+          fontSize={33}
           textColor="#121212"
-          lineHeight="147%"
+          lineHeight="53px"
+          fontStyle="normal"
         >
           저는 키오스크 시뮬레이터
         </Text>
         <Text
           fontWeight={400}
-          fontSize={36}
+          fontSize={33}
           textColor="#121212"
-          lineHeight="147%"
+          lineHeight="53px"
+          fontStyle="normal"
         >
           <strong>키지</strong>에요.
         </Text>
@@ -56,14 +59,32 @@ const Home = () => {
       >
         Img should be here
       </Box>
-      <Container position="absolute" w={339} h={159} left={427} top={427}>
-        <Text fontWeight={600} fontSize={36} textAlign="right" color="#121212">
+      <Container position="absolute" w={370} h={159} left={410} top={427}>
+        <Text
+          fontWeight={600}
+          fontSize={36}
+          textAlign="right"
+          color="#121212"
+          lineHeight="53px"
+        >
           <strong>잠깐만요!</strong>
         </Text>
-        <Text fontWeight={600} fontSize={36} textAlign="right" color="#121212">
+        <Text
+          fontWeight={500}
+          fontSize={36}
+          textAlign="right"
+          color="#121212"
+          lineHeight="53px"
+        >
           시작하기 전 제 설명서를
         </Text>
-        <Text fontWeight={600} fontSize={36} textAlign="right" color="#121212">
+        <Text
+          fontWeight={600}
+          fontSize={36}
+          textAlign="right"
+          color="#2C5282"
+          lineHeight="53px"
+        >
           <strong>꼭 읽어주세요!</strong>
         </Text>
       </Container>
@@ -76,21 +97,21 @@ const Home = () => {
         bgColor="#2C5282"
         borderRadius={20}
         onClick={() => navigate('/how-to-use')}
+      ></Box>
+      <Text
+        position="absolute"
+        fontWeight={400}
+        fontSize={20}
+        letterSpacing="0.05em"
+        color="#FFFFFF"
+        left={600}
+        top={620}
+        w={145}
+        h={53}
+        cursor="pointer"
       >
-        <Text
-          fontWeight={400}
-          fontSize={20}
-          letterSpacing="0.05em"
-          color="#FFFFFF"
-          left={600}
-          top={608}
-          w={145}
-          h={53}
-          cursor="pointer"
-        >
-          확인하러 가기 &gt;
-        </Text>
-      </Box>
+        확인하러 가기 &gt;
+      </Text>
 
       <Text
         position="absolute"
