@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 
 type WrapperProps = {
-  children: React.ReactNode;
+  children: React.ReactNode | any;
 };
 
 const Wrapper = (props: WrapperProps) => {
