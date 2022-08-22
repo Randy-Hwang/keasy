@@ -1,14 +1,39 @@
 import { Box, Container, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+
 import HeaderBlue from '../components/HeaderBlue';
 import Wrapper from '../components/Wrapper';
 
+import { useState } from 'react';
+
+import Subtitle from '../assets/homeAssets/subtitle_img.svg';
+import CafeImg from '../assets/homeAssets/cafe.svg';
+import FastFoodImg from '../assets/homeAssets/fastfood.svg';
+
+import ChooseDifficulty from '../components/ChooseDifficulty';
+import { Clicked, ClickedValue } from '../states/states';
+
 const Home = () => {
   const navigate = useNavigate();
+  const { isClicked, setIsClicked } = Clicked((state) => state);
+  const { clickedValue, setClickedValue } = ClickedValue((state) => state);
+
+  const handleClick = (store: 'cafe' | 'fastfood') => {
+    setIsClicked(isClicked);
+    setClickedValue(store);
+  };
 
   return (
     <Wrapper>
       <HeaderBlue />
+      <Box
+        position="absolute"
+        w={0}
+        h={137.5}
+        left={45}
+        top={195}
+        border="1px solid #2C5282"
+      />
       <Container position="absolute" w={370} h={159} left={51} top={184}>
         <Text
           fontWeight={500}
@@ -38,26 +63,9 @@ const Home = () => {
           <strong>키지</strong>에요.
         </Text>
       </Container>
-      <Box
-        position="absolute"
-        w={251}
-        h={186}
-        left={512}
-        top={170}
-        bgColor="#D9D9D9"
-      >
-        Img should be here
-      </Box>
 
-      <Box
-        position="absolute"
-        w={251}
-        h={261}
-        top={413}
-        left={68}
-        bgColor="#D9D9D9"
-      >
-        Img should be here
+      <Box position="absolute" top={362}>
+        <img src={Subtitle} width="834px" height="336px" />
       </Box>
       <Container position="absolute" w={370} h={159} left={410} top={427}>
         <Text
@@ -76,7 +84,7 @@ const Home = () => {
           color="#121212"
           lineHeight="53px"
         >
-          시작하기 전 제 설명서를
+          시작 전, 설명서를
         </Text>
         <Text
           fontWeight={600}
@@ -115,6 +123,14 @@ const Home = () => {
         확인하러 가기 &gt;
       </Text>
 
+      <Box
+        position="absolute"
+        w={0}
+        h={55}
+        left={45}
+        top={745}
+        border="1px solid #2C5282"
+      />
       <Text
         position="absolute"
         w={530}
@@ -128,51 +144,29 @@ const Home = () => {
         오늘 저와 어느 장소를 연습해 볼까요?
       </Text>
 
-      <Box
-        position="absolute"
-        w={319}
-        h={261}
-        top={826}
-        left={68}
-        bgColor="#D9D9D9"
-        cursor="pointer"
-        onClick={() => navigate('/cafe')}
-      ></Box>
-      <Text
-        position="absolute"
-        w={70}
-        h={48}
-        top={933}
-        left={192}
-        fontWeight={600}
-        fontSize={40}
-        color="#000000"
-        cursor="pointer"
-        onClick={() => navigate('/cafe')}
-      >
-        카페
-      </Text>
+      <Box position="absolute" left={121} top={832} cursor="pointer">
+        <img
+          src={CafeImg}
+          width="260px"
+          height="230px"
+          onClick={() => {
+            handleClick('cafe');
+          }}
+        />
+      </Box>
 
-      <Box
-        position="absolute"
-        w={319}
-        h={261}
-        top={826}
-        left={444}
-        bgColor="#D9D9D9"
-      ></Box>
-      <Text
-        position="absolute"
-        w={217}
-        h={48}
-        top={933}
-        left={495}
-        fontWeight={600}
-        fontSize={40}
-        color="#000000"
-      >
-        패스트 푸드점
-      </Text>
+      <Box position="absolute" left={446} top={832} cursor="pointer">
+        <img
+          src={FastFoodImg}
+          width="267px"
+          height="230px"
+          onClick={() => {
+            handleClick('fastfood');
+          }}
+        />
+      </Box>
+
+      {isClicked ? <ChooseDifficulty ChoosenStore={clickedValue} /> : null}
     </Wrapper>
   );
 };
