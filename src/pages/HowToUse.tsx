@@ -9,39 +9,25 @@ const HowToUse = () => {
   return (
     <Wrapper>
       <HeaderBlue />
-      <Text
-        position="absolute"
-        w={106}
-        h={24}
-        top={35}
-        left={77}
-        color="#FFFFFF"
-        fontSize={20}
-        letterSpacing="0.1em"
-        onClick={() => navigate(-1)}
-        cursor="pointer"
-      >
-        {'<'} 뒤로가기
-      </Text>
-      <Container position="absolute" w={320} h={159} left={55} top={184}>
-        <Text fontWeight={400} fontSize={36} color="#121212">
-          쉽고 간편한
-        </Text>
-        <Text fontWeight={400} fontSize={36} color="#121212">
-          키지 사용법!
-        </Text>
-        <Text fontWeight={400} fontSize={36} color="#121212">
-          <strong>네 가지</strong>만 숙지해요.
-        </Text>
-      </Container>
       <Box
         position="absolute"
-        w={251}
-        h={186}
-        top={170}
-        left={515}
-        bgColor="#D9D9D9"
-      ></Box>
+        w={0}
+        h={137.5}
+        left={74}
+        top={195}
+        border="1px solid #2C5282"
+      />
+      <Container position="absolute" w={380} h={159} left={107} top={184}>
+        <Text fontWeight={400} fontSize={36} color="#121212">
+          쉽고 간편한 키지 사용법!
+        </Text>
+        <Text fontWeight={400} fontSize={36} color="#121212">
+          <strong>네 가지</strong>만 숙지하고
+        </Text>
+        <Text fontWeight={400} fontSize={36} color="#121212">
+          연습해보세요!
+        </Text>
+      </Container>
 
       <Text
         position="absolute"
@@ -63,12 +49,12 @@ const HowToUse = () => {
         fontWeight={500}
         fontSize={24}
       >
-        상단의 미션을 확인해 주세요
+        상단에서 미션을 확인해 주세요
       </Text>
       <Box
         position="absolute"
         w={340}
-        h={190}
+        h={192}
         top={523}
         left={68}
         bgColor="#D9D9D9"
@@ -113,15 +99,15 @@ const HowToUse = () => {
       >
         03
       </Text>
-      <Container position="absolute" w={320} h={68} top={779} left={53}>
+      <Container position="absolute" w={340} h={68} top={779} left={53}>
         <Text fontWeight={500} fontSize={24}>
           선택한 메뉴를 취소하고 싶다면
         </Text>
         <Text fontWeight={500} fontSize={24}>
-          주문 내역 메뉴 우측에
+          주문 내역의 취소할 메뉴 우측에
         </Text>
         <Text fontWeight={500} fontSize={24}>
-          "취소" 아이콘을 터치해 주세요
+          "X" 아이콘을 터치해 주세요
         </Text>
       </Container>
       <Box
@@ -163,6 +149,30 @@ const HowToUse = () => {
         left={428}
         bgColor="#D9D9D9"
       ></Box>
+
+      <Container
+        position="absolute"
+        w={221}
+        h={59}
+        left={550}
+        top={1105}
+        borderRadius={30}
+        bgColor="#2C5282"
+        onClick={() => navigate(-1)}
+      >
+        <Text
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          w={165}
+          h={53}
+          fontWeight={600}
+          fontSize={22}
+          color="#FFFFFF"
+        >
+          다 확인했어요 {'>'}
+        </Text>
+      </Container>
     </Wrapper>
   );
 };

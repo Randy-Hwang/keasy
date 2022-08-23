@@ -11,12 +11,13 @@ import CafeImg from '../assets/homeAssets/cafe.svg';
 import FastFoodImg from '../assets/homeAssets/fastfood.svg';
 
 import ChooseDifficulty from '../components/ChooseDifficulty';
-import { Clicked, ClickedValue } from '../states/states';
+import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
 
 const Home = () => {
   const navigate = useNavigate();
   const { isClicked, setIsClicked } = Clicked((state) => state);
   const { clickedValue, setClickedValue } = ClickedValue((state) => state);
+  const { clickedLevel, setClickedLevel } = ClickedLevel((state) => state);
 
   const handleClick = (store: 'cafe' | 'fastfood') => {
     setIsClicked(isClicked);
@@ -151,6 +152,7 @@ const Home = () => {
           height="230px"
           onClick={() => {
             handleClick('cafe');
+            setClickedLevel(0);
           }}
         />
       </Box>
@@ -162,6 +164,7 @@ const Home = () => {
           height="230px"
           onClick={() => {
             handleClick('fastfood');
+            setClickedLevel(0);
           }}
         />
       </Box>

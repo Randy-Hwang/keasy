@@ -16,9 +16,8 @@ interface IProps {
 
 const ChooseDifficulty = (ChoosenStore: IProps) => {
   const { isClicked, setIsClicked } = Clicked((state) => state);
-  const navigate = useNavigate();
-
   const { clickedLevel, setClickedLevel } = ClickedLevel((state) => state);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -151,7 +150,8 @@ const ChooseDifficulty = (ChoosenStore: IProps) => {
         cursor="pointer"
         color="#FFFFFF"
         onClick={() => {
-          clickedLevel === 0 ? undefined : navigate('/mission');
+          clickedLevel === 0 ? undefined : setIsClicked(isClicked);
+          navigate('/mission');
         }}
       >
         난이도 선택했어요 {'>'}

@@ -11,12 +11,11 @@ const HeaderWhite = () => {
     <>
       <Box
         position="absolute"
-        w={834}
+        w={832}
         h={100}
         left={0}
         top={0}
         bgColor="#FFFFFF"
-        borderBottom="1px solid #2C5282"
       />
 
       <Box position="absolute" top={30} left={396} w={180}>
