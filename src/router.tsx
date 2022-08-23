@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Mission from './components/Mission';
-import Cafe from './pages/Cafe';
+import Cafe from './pages/Mission';
 import Home from './pages/Home';
 import HowToUse from './pages/HowToUse';
 import Onboard from './pages/Onboard';
+import Mission from './pages/Mission';
 
 const Router = () => {
   return (
