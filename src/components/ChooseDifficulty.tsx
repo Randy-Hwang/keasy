@@ -150,7 +150,7 @@ const ChooseDifficulty = (ChoosenStore: IProps) => {
         cursor="pointer"
         color="#FFFFFF"
         onClick={() => {
-          clickedLevel === 0 ? undefined : setIsClicked(isClicked);
+          clickedLevel === 0 ? null : setIsClicked(isClicked);
           navigate('/mission');
         }}
       >
