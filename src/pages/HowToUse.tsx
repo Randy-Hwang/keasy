@@ -159,6 +159,7 @@ const HowToUse = () => {
         borderRadius={30}
         bgColor="#2C5282"
         onClick={() => navigate(-1)}
+        cursor="pointer"
       >
         <Text
           display="flex"
