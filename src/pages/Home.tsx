@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import HeaderBlue from '../components/HeaderBlue';
 import Wrapper from '../components/Wrapper';
 
-import { useState } from 'react';
-
 import Subtitle from '../assets/homeAssets/subtitle_img.svg';
 import CafeImg from '../assets/homeAssets/cafe.svg';
-import FastFoodImg from '../assets/homeAssets/fastfood.svg';
+import FoodCourt from '../assets/homeAssets/foodcourt.svg';
 
 import ChooseDifficulty from '../components/ChooseDifficulty';
 import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
@@ -19,7 +17,7 @@ const Home = () => {
   const { clickedValue, setClickedValue } = ClickedValue((state) => state);
   const { clickedLevel, setClickedLevel } = ClickedLevel((state) => state);
 
-  const handleClick = (store: 'cafe' | 'fastfood') => {
+  const handleClick = (store: 'cafe' | 'foodcourt') => {
     setIsClicked(isClicked);
     setClickedValue(store);
   };
@@ -159,11 +157,11 @@ const Home = () => {
 
       <Box position="absolute" left={446} top={832} cursor="pointer">
         <img
-          src={FastFoodImg}
+          src={FoodCourt}
           width="267px"
           height="230px"
           onClick={() => {
-            handleClick('fastfood');
+            handleClick('foodcourt');
             setClickedLevel(0);
           }}
         />

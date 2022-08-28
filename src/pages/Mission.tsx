@@ -1,7 +1,11 @@
+import { Box, Button } from '@chakra-ui/react';
+import { useState } from 'react';
+import { ClickedLevel, ClickedValue } from '../states/states';
+
 import HeaderWhite from '../components/HeaderWhite';
 import ShowMission from '../components/ShowMission';
 import Wrapper from '../components/Wrapper';
-import { ClickedLevel, ClickedValue } from '../states/states';
+import CafeMenu from '../components/cafe/CafeMenu';
 
 const Cafe = () => {
   const { clickedLevel } = ClickedLevel();
@@ -11,9 +15,10 @@ const Cafe = () => {
     <Wrapper>
       <HeaderWhite />
       <ShowMission />
-      <div>
+      <Box position="absolute" top={300}>
         This is "{clickedValue}" Mission Component, Lv{clickedLevel}
-      </div>
+      </Box>
+      <CafeMenu />
     </Wrapper>
   );
 };
