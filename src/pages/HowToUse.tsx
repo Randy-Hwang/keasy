@@ -1,7 +1,12 @@
-import { Box, Container, Text } from '@chakra-ui/react';
+import { Box, Container, Image, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import HeaderBlue from '../components/HeaderBlue';
 import Wrapper from '../components/Wrapper';
+
+import Inst1 from '../assets/howToUseAssets/inst1.svg';
+import Inst2 from '../assets/howToUseAssets/inst2.svg';
+import Inst3 from '../assets/howToUseAssets/inst3.svg';
+import Inst4 from '../assets/howToUseAssets/inst4.svg';
 
 const HowToUse = () => {
   const navigate = useNavigate();
@@ -51,14 +56,14 @@ const HowToUse = () => {
       >
         상단에서 미션을 확인해 주세요
       </Text>
-      <Box
+      <Image
+        src={Inst1}
         position="absolute"
         w={340}
         h={192}
         top={523}
         left={68}
-        bgColor="#D9D9D9"
-      ></Box>
+      ></Image>
 
       <Text
         position="absolute"
@@ -79,14 +84,15 @@ const HowToUse = () => {
           가볍게 터치해 주세요
         </Text>
       </Container>
-      <Box
+      <Image
+        src={Inst2}
         position="absolute"
         w={340}
         h={190}
         top={523}
         left={430}
         bgColor="#D9D9D9"
-      ></Box>
+      ></Image>
 
       <Text
         position="absolute"
@@ -110,14 +116,15 @@ const HowToUse = () => {
           "X" 아이콘을 터치해 주세요
         </Text>
       </Container>
-      <Box
+      <Image
+        src={Inst3}
         position="absolute"
         w={340}
         h={190}
         top={890}
         left={68}
         bgColor="#D9D9D9"
-      ></Box>
+      ></Image>
 
       <Text
         position="absolute"
@@ -141,14 +148,15 @@ const HowToUse = () => {
           아이콘을 터치해 주세요.
         </Text>
       </Container>
-      <Box
+      <Image
+        src={Inst4}
         position="absolute"
         w={340}
         h={190}
         top={890}
         left={428}
         bgColor="#D9D9D9"
-      ></Box>
+      ></Image>
 
       <Container
         position="absolute"
