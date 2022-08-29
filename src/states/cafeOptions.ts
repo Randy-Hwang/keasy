@@ -1,7 +1,7 @@
 // 커피가 가져야 할 state : temperature, amount, size, iceAmount(차가울때), shotAmount, sweetness
 // 주스/스무디/에이드 : amount, size, sweetness
 // 티 : temperature, amount, size, iceAmount(차가울때)
-import create from 'zustand/react';
+import create from 'zustand';
 
 interface ITemperature {
   temperature: 'hot' | 'cold' | 'none';
@@ -70,26 +70,3 @@ export const Sweetness = create<ISweetness>((set) => ({
   setSweetness: (sweetness: 'normal' | 'less' | 'cinnamon') =>
     set({ sweetness: sweetness }),
 }));
-
-export const CoffeeOptions = {
-  temperature: Temperature,
-  amount: Amount,
-  size: Size,
-  iceAmount: IceAmount,
-  shotAmount: ShotAmount,
-  sweetness: CoffeeSweetness,
-};
-
-export const JuiceOptions = {
-  temperature: 'cold',
-  amount: Amount,
-  size: Size,
-  sweetness: Sweetness,
-};
-
-export const TeaOptions = {
-  temperature: Temperature,
-  amount: Amount,
-  size: Size,
-  iceAmount: IceAmount,
-};

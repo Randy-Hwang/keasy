@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react';
 
-import { Clicked, ClickedLevel } from '../states/states';
+import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
 import { useNavigate } from 'react-router-dom';
 
 import Lv1_unselected from '../assets/difficultyAssets/lv1_unselected.svg';
@@ -10,13 +10,10 @@ import Lv1_selected from '../assets/difficultyAssets/lv1_selected.svg';
 import Lv2_selected from '../assets/difficultyAssets/lv2_selected.svg';
 import Lv3_selected from '../assets/difficultyAssets/lv3_selected.svg';
 
-interface IProps {
-  ChoosenStore: string;
-}
-
-const ChooseDifficulty = (ChoosenStore: IProps) => {
+const ChooseDifficulty = () => {
   const { isClicked, setIsClicked } = Clicked((state) => state);
   const { clickedLevel, setClickedLevel } = ClickedLevel((state) => state);
+  const { clickedValue } = ClickedValue();
   const navigate = useNavigate();
 
   return (
@@ -31,7 +28,7 @@ const ChooseDifficulty = (ChoosenStore: IProps) => {
         border="1px solid gray"
       />
 
-      {ChoosenStore.ChoosenStore === 'cafe' ? (
+      {clickedValue === 'cafe' ? (
         <Text
           w={338}
           h={53}
@@ -55,7 +52,7 @@ const ChooseDifficulty = (ChoosenStore: IProps) => {
           fontSize={36}
           lineHeight="53px"
         >
-          <strong>패스트 푸드점</strong>을 연습하시겠어요?
+          <strong>푸드코트</strong>를 연습하시겠어요?
         </Text>
       )}
 

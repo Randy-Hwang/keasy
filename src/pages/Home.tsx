@@ -167,7 +167,7 @@ const Home = () => {
         />
       </Box>
 
-      {isClicked ? <ChooseDifficulty ChoosenStore={clickedValue} /> : null}
+      {isClicked ? <ChooseDifficulty /> : null}
     </Wrapper>
   );
 };
