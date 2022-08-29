@@ -14,17 +14,27 @@ interface IclickedLevel {
   setClickedLevel: (clickedLevel: number) => void;
 }
 export const ClickedLevel = create<IclickedLevel>((set) => ({
-  clickedLevel: 0,
-  setClickedLevel: (clickedLevel: number) =>
-    set({ clickedLevel: clickedLevel }),
+  clickedLevel:
+    localStorage.getItem('clickedLevel') !== null
+      ? Number(localStorage.getItem('clickedLevel'))
+      : 0,
+  setClickedLevel: (clickedLevel: number) => {
+    localStorage.setItem('clickedLevel', clickedLevel.toString());
+    set({ clickedLevel: clickedLevel });
+  },
 }));
 
 interface IclickedValue {
-  clickedValue: string;
+  clickedValue: string | null;
   setClickedValue: (clickedValue: string) => void;
 }
 export const ClickedValue = create<IclickedValue>((set) => ({
-  clickedValue: '',
-  setClickedValue: (clickedValue: string) =>
-    set({ clickedValue: clickedValue }),
+  clickedValue:
+    localStorage.getItem('clickedValue') !== null
+      ? localStorage.getItem('clickedValue')
+      : '',
+  setClickedValue: (clickedValue: string) => {
+    localStorage.setItem('clickedValue', clickedValue);
+    set({ clickedValue: clickedValue });
+  },
 }));

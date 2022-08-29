@@ -1,5 +1,4 @@
 import { Box, Button } from '@chakra-ui/react';
-import { useState } from 'react';
 import { ClickedLevel, ClickedValue } from '../states/states';
 
 import HeaderWhite from '../components/HeaderWhite';
