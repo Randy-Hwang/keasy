@@ -217,6 +217,7 @@ const CafeMenu = () => {
       options: {},
     },
   ];
+
   const recommendMenuList = [
     coffeeMenuList[0],
     breadMenuList[1],
@@ -296,7 +297,7 @@ const CafeMenu = () => {
           빵/디저트
         </Button>
       </Box>
-      {/* 6개만 렌더. 좌우 화살표 구현 필요 */}
+      {/* 6개만 렌더 + 메뉴 6개 넘을 시 좌우 화살표 구현 필요 */}
       {renderClickedTab(clickedTab)!.map((menu, idx) => (
         <>
           <Button

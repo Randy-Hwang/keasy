@@ -14,8 +14,8 @@ import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
 const Home = () => {
   const navigate = useNavigate();
   const { isClicked, setIsClicked } = Clicked((state) => state);
-  const { clickedValue, setClickedValue } = ClickedValue((state) => state);
-  const { clickedLevel, setClickedLevel } = ClickedLevel((state) => state);
+  const { setClickedValue } = ClickedValue((state) => state);
+  const { setClickedLevel } = ClickedLevel((state) => state);
 
   const handleClick = (store: 'cafe' | 'foodcourt') => {
     setIsClicked(isClicked);
