@@ -1,8 +1,9 @@
 import { Box, Container, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+
 import Logo from '../assets/keasyLogo.svg';
 import House from '../assets/house.svg';
 import Info from '../assets/circle-info.svg';
-import { useNavigate } from 'react-router-dom';
 
 const HeaderWhite = () => {
   const navigate = useNavigate();

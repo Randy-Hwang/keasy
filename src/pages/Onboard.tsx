@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import Logo from '../assets/keasyLogo.svg';
-import { useNavigate } from 'react-router-dom';
 
 const Onboard = () => {
   const navigate = useNavigate();
