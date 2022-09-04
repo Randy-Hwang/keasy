@@ -1,14 +1,14 @@
 import { Box, Text } from '@chakra-ui/react';
 
-import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
 import { useNavigate } from 'react-router-dom';
+import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
 
-import Lv1_unselected from '../assets/difficultyAssets/lv1_unselected.svg';
-import Lv2_unselected from '../assets/difficultyAssets/lv2_unselected.svg';
-import Lv3_unselected from '../assets/difficultyAssets/lv3_unselected.svg';
-import Lv1_selected from '../assets/difficultyAssets/lv1_selected.svg';
-import Lv2_selected from '../assets/difficultyAssets/lv2_selected.svg';
-import Lv3_selected from '../assets/difficultyAssets/lv3_selected.svg';
+import Lv1_selected from '../assets/difficultyAssets/Lv1_selected.svg';
+import Lv1_unselected from '../assets/difficultyAssets/Lv1_unselected.svg';
+import Lv2_selected from '../assets/difficultyAssets/Lv2_selected.svg';
+import Lv2_unselected from '../assets/difficultyAssets/Lv2_unselected.svg';
+import Lv3_selected from '../assets/difficultyAssets/Lv3_selected.svg';
+import Lv3_unselected from '../assets/difficultyAssets/Lv3_unselected.svg';
 
 const ChooseDifficulty = () => {
   const { isClicked, setIsClicked } = Clicked((state) => state);

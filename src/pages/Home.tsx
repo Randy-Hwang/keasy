@@ -1,14 +1,11 @@
-import { Box, Container, Text } from '@chakra-ui/react';
+import Cafe from '@/assets/homeAssets/cafe.svg';
+import FoodCourt from '@/assets/homeAssets/foodcourt.svg';
+import Subtitle from '@/assets/homeAssets/subtitle_img.svg';
+import HeaderBlue from '@/components/HeaderBlue';
+import Wrapper from '@/components/Wrapper';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import { Box, Flex, GridItem, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-
-import HeaderBlue from '../components/HeaderBlue';
-import Wrapper from '../components/Wrapper';
-
-import Subtitle from '../assets/homeAssets/subtitle_img.svg';
-import CafeImg from '../assets/homeAssets/cafe.svg';
-import FoodCourt from '../assets/homeAssets/foodcourt.svg';
-
-import ChooseDifficulty from '../components/ChooseDifficulty';
 import { Clicked, ClickedLevel, ClickedValue } from '../states/states';
 
 const Home = () => {
@@ -25,149 +22,108 @@ const Home = () => {
   return (
     <Wrapper>
       <HeaderBlue />
-      <Box
-        position="absolute"
-        w={0}
-        h={137.5}
-        left={45}
-        top={195}
-        border="1px solid #2C5282"
-      />
-      <Container position="absolute" w={370} h={159} left={51} top={184}>
+      <GridItem colStart={2} colSpan={9} rowStart={153}>
         <Text
-          fontWeight={500}
-          fontSize={33}
-          textColor="#121212"
-          lineHeight="53px"
-          fontStyle="normal"
+          color="black"
+          fontSize="36px"
+          lineHeight="56px"
+          px="calc((min(100vw, 834px) - 320px) / 15)"
+          borderLeftWidth="2px"
+          borderLeftColor="main"
         >
           안녕하세요!
-        </Text>
-        <Text
-          fontWeight={500}
-          fontSize={33}
-          textColor="#121212"
-          lineHeight="53px"
-          fontStyle="normal"
-        >
+          <br />
           저는 키오스크 시뮬레이터
+          <br />
+          <Text as="strong" color="main">
+            키지
+          </Text>
+          에요.
         </Text>
-        <Text
-          fontWeight={500}
-          fontSize={33}
-          textColor="#121212"
-          lineHeight="53px"
-          fontStyle="normal"
-        >
-          <strong>키지</strong>에요.
-        </Text>
-      </Container>
-
+      </GridItem>
       <Box position="absolute" top={362}>
         <img src={Subtitle} width="834px" height="336px" />
       </Box>
-      <Container position="absolute" w={370} h={159} left={410} top={427}>
-        <Text
-          fontWeight={600}
-          fontSize={36}
-          textAlign="right"
-          color="#121212"
-          lineHeight="53px"
-        >
+      <GridItem colEnd={15} colSpan={5} rowStart={420} zIndex={1}>
+        <Text color="black" fontSize="36px" lineHeight="56px" textAlign="end">
           <strong>잠깐만요!</strong>
-        </Text>
-        <Text
-          fontWeight={500}
-          fontSize={36}
-          textAlign="right"
-          color="#121212"
-          lineHeight="53px"
-        >
+          <br />
           시작 전, 설명서를
+          <br />
+          <Text as="strong" color="main">
+            꼭 읽어주세요!
+          </Text>
         </Text>
-        <Text
-          fontWeight={600}
-          fontSize={36}
-          textAlign="right"
-          color="#2C5282"
-          lineHeight="53px"
+      </GridItem>
+      <GridItem colEnd={15} colSpan={4} rowStart={608} rowSpan={40} zIndex={1}>
+        <Box
+          bgColor="main"
+          rounded="20px"
+          as={Flex}
+          justifyContent="center"
+          alignItems="center"
+          cursor="pointer"
+          onClick={() => {
+            navigate('/how-to-use');
+          }}
         >
-          <strong>꼭 읽어주세요!</strong>
+          <Text
+            color="white"
+            fontSize="20px"
+            fontWeight={600}
+            lineHeight="40px"
+          >
+            확인하러 가기
+          </Text>
+          <ChevronRightIcon w="35px" h="35px" color="white" />
+        </Box>
+      </GridItem>
+      <GridItem colStart={2} colSpan={12} rowStart={745}>
+        <Text
+          color="black"
+          fontSize="36px"
+          lineHeight="56px"
+          px="calc((min(100vw, 834px) - 320px) / 15)"
+          borderLeftWidth="2px"
+          borderLeftColor="main"
+        >
+          저와 어느 장소를 연습하고 싶으신가요?
         </Text>
-      </Container>
-      <Box
-        position="absolute"
-        w={183}
-        h="40px"
-        left={580}
-        top={615}
-        bgColor="#2C5282"
-        borderRadius={20}
+      </GridItem>
+      <GridItem
+        colStart={3}
+        colSpan={5}
+        rowStart={962}
+        shadow="0px 5px 10px -4px rgba(0, 0, 0, 0.25)"
+        rounded="10px"
+        as={Flex}
+        flexDir="column"
+        justifyContent="center"
+        alignItems="center"
         cursor="pointer"
-        onClick={() => navigate('/how-to-use')}
-      ></Box>
-      <Text
-        position="absolute"
-        fontWeight={400}
-        fontSize={20}
-        letterSpacing="0.05em"
-        color="#FFFFFF"
-        left={600}
-        top={620}
-        w={145}
-        h={53}
+        onClick={() => {
+          navigate('/cafe');
+        }}
+      >
+        <img src={Cafe} width="100%" />
+      </GridItem>
+      <GridItem
+        colStart={9}
+        colSpan={5}
+        rowStart={962}
+        shadow="0px 5px 10px -4px rgba(0, 0, 0, 0.25)"
+        rounded="10px"
+        as={Flex}
+        flexDir="column"
+        justifyContent="center"
+        alignItems="center"
         cursor="pointer"
-        onClick={() => navigate('/how-to-use')}
+        onClick={() => {
+          navigate('/foodcourt');
+        }}
       >
-        확인하러 가기 &gt;
-      </Text>
-
-      <Box
-        position="absolute"
-        w={0}
-        h={55}
-        left={45}
-        top={745}
-        border="1px solid #2C5282"
-      />
-      <Text
-        position="absolute"
-        w={530}
-        h={53}
-        top={744}
-        left={85}
-        textColor="#121212"
-        fontWeight={400}
-        fontSize={36}
-      >
-        오늘 저와 어느 장소를 연습해 볼까요?
-      </Text>
-
-      <Box position="absolute" left={121} top={832} cursor="pointer">
-        <img
-          src={CafeImg}
-          width="260px"
-          height="230px"
-          onClick={() => {
-            handleClick('cafe');
-            setClickedLevel(0);
-          }}
-        />
-      </Box>
-
-      <Box position="absolute" left={446} top={832} cursor="pointer">
-        <img
-          src={FoodCourt}
-          width="267px"
-          height="230px"
-          onClick={() => {
-            handleClick('foodcourt');
-            setClickedLevel(0);
-          }}
-        />
-      </Box>
-
-      {isClicked ? <ChooseDifficulty /> : null}
+        <img src={FoodCourt} width="100%" />
+      </GridItem>
     </Wrapper>
   );
 };

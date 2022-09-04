@@ -461,6 +461,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/color-mode@npm:2.1.7":
+  version: 2.1.7
+  resolution: "@chakra-ui/color-mode@npm:2.1.7"
+  dependencies:
+    "@chakra-ui/react-use-safe-layout-effect": 2.0.1
+  peerDependencies:
+    react: ">=18"
+  checksum: c83a72733545192377df3c1d1de9de8d276c7604e14ae74975215b4366cb8195e43c327185e2f75a3b05b27a7a8f42742671be99c154e081d559bfbc89c3e25d
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/control-box@npm:2.0.6":
   version: 2.0.6
   resolution: "@chakra-ui/control-box@npm:2.0.6"
@@ -570,6 +581,30 @@ __metadata:
     "@chakra-ui/system": ">=2.0.0"
     react: ">=18"
   checksum: 5809d1cb325f65a9b21df8e0931e93ba08b6118c693e446e09b29c1f27a4d25b11416807eea0fcca7f14a5604c3974f41504b0930a9a965c46873335949c2088
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/icon@npm:3.0.9":
+  version: 3.0.9
+  resolution: "@chakra-ui/icon@npm:3.0.9"
+  dependencies:
+    "@chakra-ui/shared-utils": 2.0.1
+  peerDependencies:
+    "@chakra-ui/system": ">=2.0.0"
+    react: ">=18"
+  checksum: ff2a47a2c8be9ac57d2cdde141834cab9b6380b246995118bc331cacdb1c9b56345063f59e5c2bea39e48bedc43c543800c02e54038062fc0a43ba1df2ef9494
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/icons@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "@chakra-ui/icons@npm:2.0.9"
+  dependencies:
+    "@chakra-ui/icon": 3.0.9
+  peerDependencies:
+    "@chakra-ui/system": ">=2.0.0"
+    react: ">=18"
+  checksum: ce515e1a553e2eaa8cb588d87e8cc5c025f2ae503ac556c6b9acb632c22e271c3dd8b18463a4477afd3b33161b0cecb52fdcebf70f9b11c326081029e5512293
   languageName: node
   linkType: hard
 
@@ -815,6 +850,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/react-use-safe-layout-effect@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@chakra-ui/react-use-safe-layout-effect@npm:2.0.1"
+  peerDependencies:
+    react: ">=18"
+  checksum: 94f105a5a07c26ecfb52e047cd62c4f37cb4c31316571e8a5b5a557f1d6b1aa45a9a27818b22bdaadb5d3ca54f0820ac8e923b5727294f632e7fb3d69bf4e6b2
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/react-utils@npm:2.0.3":
   version: 2.0.3
   resolution: "@chakra-ui/react-utils@npm:2.0.3"
@@ -823,6 +867,17 @@ __metadata:
   peerDependencies:
     react: ">=18"
   checksum: e28961a29cea73dc4206ab38ad0b85d308e779cbd961ec07f8d7c12d86853a21bc536e919026b2edff69d8b30fc315ce995b890777870b31243fd6f5ea294695
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/react-utils@npm:2.0.6":
+  version: 2.0.6
+  resolution: "@chakra-ui/react-utils@npm:2.0.6"
+  dependencies:
+    "@chakra-ui/utils": 2.0.9
+  peerDependencies:
+    react: ">=18"
+  checksum: 27b7e91688e1959e00e7521fd956a1d0e72c94e373c9253d656336012f93fd911ba6f71cfd1a6a8de25f8e813729b431ccfaed62e774691e616435f741b5a1d4
   languageName: node
   linkType: hard
 
@@ -900,6 +955,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/shared-utils@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@chakra-ui/shared-utils@npm:2.0.1"
+  checksum: a12ee9e3d09a07481af459ee42938f0c48e98fac9995da99930a2b8db9ba70f04a7648bf792a6c9f59be6a7b6fc2e828d151ce2770a3dfb347e10d8d92bde867
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/skeleton@npm:2.0.11":
   version: 2.0.11
   resolution: "@chakra-ui/skeleton@npm:2.0.11"
@@ -969,6 +1031,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/styled-system@npm:2.3.1":
+  version: 2.3.1
+  resolution: "@chakra-ui/styled-system@npm:2.3.1"
+  dependencies:
+    csstype: ^3.0.11
+    lodash.mergewith: 4.6.2
+  checksum: 33ff3645ef21d96efcd9c28003fa4f296416f87e6142b71ac41f15d7509d0f7303677104a4dc1f7a3abda61ee28593c2c10571736a61e142770591bbffe6bb85
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/switch@npm:2.0.8":
   version: 2.0.8
   resolution: "@chakra-ui/switch@npm:2.0.8"
@@ -997,6 +1069,23 @@ __metadata:
     "@emotion/styled": ^11.0.0
     react: ">=18"
   checksum: 6c6cb83db77ead1a398f5d93a68488d2fef32d7936f1e518a952ba2a7de0bfd3a995d8005fa9a9a36456a6ac42b778383b790ef7401a360ad030f3d378d9ef3c
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/system@npm:^2.2.9":
+  version: 2.2.9
+  resolution: "@chakra-ui/system@npm:2.2.9"
+  dependencies:
+    "@chakra-ui/color-mode": 2.1.7
+    "@chakra-ui/react-utils": 2.0.6
+    "@chakra-ui/styled-system": 2.3.1
+    "@chakra-ui/utils": 2.0.9
+    react-fast-compare: 3.2.0
+  peerDependencies:
+    "@emotion/react": ^11.0.0
+    "@emotion/styled": ^11.0.0
+    react: ">=18"
+  checksum: 9e83be51ddb4a6a7566142de9eac71f5997fc495f44df9779234b422e2e35085ef50d3d0d426529039ef010fe00049e7e9ffc7274bc42599f26a353cb1be02b8
   languageName: node
   linkType: hard
 
@@ -1143,6 +1232,18 @@ __metadata:
     framesync: 5.3.0
     lodash.mergewith: 4.6.2
   checksum: 4023c29dbf8303d83752c7be0a6bb2dcda39a922b10e5141ce4a37e1040a95eb1cd4c389cfe4f8e56a081226aa5057f8d9b3a90c4660266f0df03dfa8807b08d
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/utils@npm:2.0.9":
+  version: 2.0.9
+  resolution: "@chakra-ui/utils@npm:2.0.9"
+  dependencies:
+    "@types/lodash.mergewith": 4.6.6
+    css-box-model: 1.2.1
+    framesync: 5.3.0
+    lodash.mergewith: 4.6.2
+  checksum: 9c744f3f6d307c4d864315988bca3cd6a675b049035b80196a04fb452dc212ba009e5fec3151b516cb78d5fbc4f0305ccafd7da605cc99424c6e075f7f5543af
   languageName: node
   linkType: hard
 
@@ -1586,6 +1687,13 @@ __metadata:
   version: 4.14.182
   resolution: "@types/lodash@npm:4.14.182"
   checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.7.14":
+  version: 18.7.14
+  resolution: "@types/node@npm:18.7.14"
+  checksum: 99cf28ff854100158de875cca23c7acc3cc01dfee526a52b90b7f36767c821bcbaf2be0a98a70f06f3b78f3c60639168ff949d725b61e2e124f9f71f1fb8043d
   languageName: node
   linkType: hard
 
@@ -3836,9 +3944,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:."
   dependencies:
+    "@chakra-ui/icons": ^2.0.9
     "@chakra-ui/react": ^2.2.6
+    "@chakra-ui/system": ^2.2.9
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@types/node": ^18.7.14
     "@types/react": ^18.0.17
     "@types/react-dom": ^18.0.6
     "@types/react-router-dom": ^5.3.3
