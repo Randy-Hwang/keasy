@@ -4,7 +4,13 @@ import ReactDOM from 'react-dom/client';
 import Fonts from './fonts';
 import App from './router';
 
+import './assets/global.css';
+
 const theme = extendTheme({
+  colors: {
+    main: '#2C5282',
+    text: '#121212',
+  },
   fonts: { body: `Pretendard-Regular, sans-serif` },
 });
 
