@@ -1,17 +1,10 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './router';
 
 import './assets/global.css';
-
-const theme = extendTheme({
-  colors: {
-    main: '#2C5282',
-    text: '#121212',
-  },
-  fonts: { body: `Pretendard-Regular, sans-serif` },
-});
+import theme from './theme';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
