@@ -19,6 +19,11 @@ const theme = extendTheme({
         lineHeight: '28px',
       },
     },
+    home: {
+      fontSize: '36px',
+      fontWeight: 400,
+      lineHeight: '53px',
+    },
   },
   fonts: { body: `Pretendard, sans-serif` },
 });
