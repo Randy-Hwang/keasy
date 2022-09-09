@@ -3,12 +3,14 @@ import { Center, Grid } from '@chakra-ui/react';
 type WrapperProps = {
   grid?: number;
   gap?: number;
+  margin?: number;
   children: React.ReactNode | any;
 };
 
 const Wrapper = (props: WrapperProps) => {
   const grid = props.grid || 15;
-  const gap = props.gap || 20;
+  const gap = props.gap || 24;
+  const margin = props.margin || 12;
 
   return (
     <Center w="100%" h="100%">
@@ -16,7 +18,7 @@ const Wrapper = (props: WrapperProps) => {
         pos="relative"
         templateColumns={`repeat(${grid}, 1fr)`}
         templateRows={`repeat(auto-fill, 1px)`}
-        px={`${gap}px`}
+        px={`${margin}px`}
         columnGap={`${gap}px`}
         border="1px solid gray"
         w="100%"
