@@ -5,7 +5,22 @@ const theme = extendTheme({
     main: '#2C5282',
     text: '#121212',
   },
-  fonts: { body: `Pretendard-Regular, sans-serif` },
+  textStyles: {
+    onboarding: {
+      title: {
+        fontSize: '64px',
+        fontWeight: 400,
+        lineHeight: '76px',
+        letterSpacing: '0.1em',
+      },
+      touch: {
+        fontSize: '30px',
+        fontWeight: 400,
+        lineHeight: '28px',
+      },
+    },
+  },
+  fonts: { body: `Pretendard, sans-serif` },
 });
 
 export default theme;
