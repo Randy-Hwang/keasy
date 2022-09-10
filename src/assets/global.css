@@ -5,3 +5,8 @@ body,
 #root {
   height: 100%;
 }
+
+* {
+  word-wrap: break-word;
+  word-break: keep-all;
+}
