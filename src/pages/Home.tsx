@@ -1,13 +1,13 @@
-import Cafe from '@/assets/homeAssets/cafe.svg';
-import FoodCourt from '@/assets/homeAssets/foodcourt.svg';
-import Subtitle from '@/assets/homeAssets/subtitle_img.svg';
-import HeaderBlue from '@/components/HeaderBlue';
-import Wrapper from '@/components/Wrapper';
-import DifficultyModal from '@/modals/DifficulityModal';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Box, Flex, GridItem, Text, useDisclosure } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cafe from '../assets/homeAssets/cafe.svg';
+import FoodCourt from '../assets/homeAssets/foodcourt.svg';
+import Subtitle from '../assets/homeAssets/subtitle_img.svg';
+import HeaderBlue from '../components/HeaderBlue';
+import Wrapper from '../components/Wrapper';
+import DifficultyModal from '../modals/DifficulityModal';
 
 const Home = () => {
   const navigate = useNavigate();

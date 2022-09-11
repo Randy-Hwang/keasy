@@ -4,6 +4,7 @@ const theme = extendTheme({
   colors: {
     main: '#2C5282',
     text: '#121212',
+    subText: '#2D3748',
   },
   textStyles: {
     onboarding: {
@@ -28,7 +29,11 @@ const theme = extendTheme({
   shadows: {
     home: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     howtouse: '0px 5px 8px -4px rgba(0, 0, 0, 0.25)',
-    difficultyModal: '0px 4px 6px -4px rgba(0, 0, 0, 0.25);',
+    difficultyModal: '0px 4px 6px -4px rgba(0, 0, 0, 0.25)',
+    menu: '0px 4px 6px -4px rgba(0, 0, 0, 0.25)',
+    cafe: '0px 4px 6px -4px rgba(0, 0, 0, 0.25)',
+    // menu: '0px 2px 4px -4px rgba(0, 0, 0, 0.25)',
+    // cafe: '0px 2px 4px -4px rgba(0, 0, 0, 0.25)',
   },
   fonts: { body: `Pretendard, sans-serif` },
 });

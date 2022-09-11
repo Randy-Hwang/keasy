@@ -1,14 +1,14 @@
-import HeaderBlue from '@/components/HeaderBlue';
-import Wrapper from '@/components/Wrapper';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Box, Center, Flex, GridItem, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import HeaderBlue from '../components/HeaderBlue';
+import Wrapper from '../components/Wrapper';
 
-import Inst1 from '@/assets/howToUseAssets/inst1.svg';
-import Inst2 from '@/assets/howToUseAssets/inst2.svg';
-import Inst3 from '@/assets/howToUseAssets/inst3.svg';
-import Inst4 from '@/assets/howToUseAssets/inst4.svg';
-import Image from '@/components/Image';
+import Inst1 from '../assets/howToUseAssets/inst1.svg';
+import Inst2 from '../assets/howToUseAssets/inst2.svg';
+import Inst3 from '../assets/howToUseAssets/inst3.svg';
+import Inst4 from '../assets/howToUseAssets/inst4.svg';
+import Image from '../components/Image';
 
 const HowToUse = () => {
   const navigate = useNavigate();

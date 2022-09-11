@@ -1,65 +1,44 @@
-import { Box, Container, Text } from '@chakra-ui/react';
+import { Flex, GridItem, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
-import Logo from '../assets/keasyLogo.svg';
-import House from '../assets/house.svg';
 import Info from '../assets/circle-info.svg';
+import House from '../assets/house.svg';
+import Logo from '../assets/keasyLogo.svg';
 
 const HeaderWhite = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-      <Box
-        position="absolute"
-        w={832}
-        h={100}
-        left={0}
-        top={0}
-        bgColor="#FFFFFF"
-      />
-
-      <Box position="absolute" top={30} left={396} w={180}>
-        <img src={Logo} width="41.67px" height="40px" />
-      </Box>
-      <Box onClick={() => navigate('/home')} cursor="pointer">
-        <Container position="absolute" top={37} left={39}>
-          <img src={House} width="24" height="24" />
-        </Container>
-        <Text
-          position="absolute"
-          w={140}
-          h={53}
-          top={34}
-          left={79}
-          marginLeft={3}
-          color="#2C5282"
-          fontWeight={500}
-          fontSize={20}
-        >
+    <GridItem
+      as={Flex}
+      colStart={1}
+      colSpan={12}
+      rowStart={1}
+      rowSpan={100}
+      bgColor="white"
+      justifyContent="space-between"
+      alignItems="center"
+      px="20px"
+    >
+      <Flex w="160px" onClick={() => navigate('/home')} cursor="pointer">
+        <img src={House} width="24" height="24" />
+        <Text fontSize="16px" lineHeight="24px" color="subText" ml="8px">
           홈으로 돌아가기
         </Text>
-      </Box>
-
-      <Box onClick={() => navigate('/how-to-use')} cursor="pointer">
-        <Container position="absolute" top={38} left={680}>
-          <img src={Info} width="24" height="24" />
-        </Container>
-        <Text
-          position="absolute"
-          w={56}
-          h={53}
-          top={35}
-          left={725}
-          marginLeft={1}
-          color="#2C5282"
-          fontWeight={500}
-          fontSize={20}
-        >
+      </Flex>
+      <img src={Logo} width="41.67px" height="40px" />
+      <Flex
+        w="160px"
+        justifyContent="end"
+        onClick={() => navigate('/how-to-use')}
+        cursor="pointer"
+      >
+        <img src={Info} width="24" height="24" />
+        <Text fontSize="16px" lineHeight="24px" color="subText" ml="8px">
           사용법
         </Text>
-      </Box>
-    </>
+      </Flex>
+    </GridItem>
   );
 };
 

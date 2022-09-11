@@ -1,0 +1,18 @@
+{
+  "cafe": [
+    [
+      {
+        "mission": "차가운 아메리카노 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도 1잔",
+        "result": {
+          "name": "아메리카노",
+          "size": "default",
+          "ice": "default",
+          "shot": "default",
+          "sugar": "default"
+        }
+      }
+    ],
+    [],
+    []
+  ]
+}

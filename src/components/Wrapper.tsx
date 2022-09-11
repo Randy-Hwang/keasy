@@ -8,7 +8,7 @@ type WrapperProps = {
 };
 
 const Wrapper = (props: WrapperProps) => {
-  const grid = props.grid || 15;
+  const grid = props.grid || 12;
   const gap = props.gap || 24;
   const margin = props.margin || 12;
 

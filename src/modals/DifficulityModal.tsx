@@ -1,5 +1,5 @@
-import StarMain from '@/assets/starMain.svg';
-import StarWhite from '@/assets/starWhite.svg';
+import StarMain from '../assets/starMain.svg';
+import StarWhite from '../assets/starWhite.svg';
 
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import {
