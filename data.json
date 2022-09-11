@@ -1,0 +1,197 @@
+{
+  "suggest": [
+    {
+      "name": "아메리카노",
+      "type": "coffee",
+      "price": 4100,
+      "image": "data/s1.png"
+    },
+    {
+      "name": "베리 와플",
+      "type": "dessert",
+      "price": 6500,
+      "image": "data/s2.png"
+    },
+    {
+      "name": "카페 라떼",
+      "type": "coffee",
+      "price": 5000,
+      "image": "data/s3.png"
+    }
+  ],
+  "trend": [
+    {
+      "name": "얼그레이 레몬티",
+      "type": "tea",
+      "price": 6300,
+      "image": "data/r1.png"
+    },
+    {
+      "name": "치즈 케이크",
+      "type": "dessert",
+      "price": 6500,
+      "image": "data/r2.png"
+    },
+    {
+      "name": "체리 스무디",
+      "type": "juice",
+      "price": 5000,
+      "image": "data/r3.png"
+    }
+  ],
+  "coffee": [
+    {
+      "name": "아메리카노",
+      "price": 4100,
+      "image": "data/c1.png"
+    },
+    {
+      "name": "카페 라떼",
+      "price": 5000,
+      "image": "data/c2.png"
+    },
+    {
+      "name": "카푸치노",
+      "price": 5000,
+      "image": "data/c3.png"
+    },
+    {
+      "name": "바닐라 라떼",
+      "price": 5500,
+      "image": "data/c4.png"
+    },
+    {
+      "name": "카페 모카",
+      "price": 5500,
+      "image": "data/c5.png"
+    },
+    {
+      "name": "카라멜 마끼아또",
+      "price": 5500,
+      "image": "data/c6.png"
+    },
+    {
+      "name": "아인슈페너 블랙",
+      "price": 6600,
+      "image": "data/c7.png"
+    },
+    {
+      "name": "아인슈페너 라떼",
+      "price": 7000,
+      "image": "data/c8.png"
+    },
+    {
+      "name": "콜드 브루",
+      "price": 5000,
+      "image": "data/c9.png"
+    },
+    {
+      "name": "콜드 브루 라떼",
+      "price": 5500,
+      "image": "data/c10.png"
+    },
+    {
+      "name": "아포가토",
+      "price": 5000,
+      "image": "data/c11.png"
+    }
+  ],
+  "juice": [
+    {
+      "name": "딸기 주스",
+      "price": 6000,
+      "image": "data/j1.png"
+    },
+    {
+      "name": "토마토 주스",
+      "price": 6000,
+      "image": "data/j2.png"
+    },
+    {
+      "name": "포도 주스",
+      "price": 6000,
+      "image": "data/j3.png"
+    },
+    {
+      "name": "믹스베리 스무디",
+      "price": 6500,
+      "image": "data/j4.png"
+    },
+    {
+      "name": "망고 스무디",
+      "price": 6500,
+      "image": "data/j5.png"
+    },
+    {
+      "name": "체리 스무디",
+      "price": 6000,
+      "image": "data/j6.png"
+    },
+    {
+      "name": "요거트 스무디",
+      "price": 6000,
+      "image": "data/j7.png"
+    },
+    {
+      "name": "초코 스무디",
+      "price": 6500,
+      "image": "data/j8.png"
+    }
+  ],
+  "tea": [
+    {
+      "name": "녹차 (그린티)",
+      "price": 5000,
+      "image": "data/t1.png"
+    },
+    {
+      "name": "홍차 (얼그레이 티)",
+      "price": 5000,
+      "image": "data/t2.png"
+    },
+    {
+      "name": "캐모마일 티",
+      "price": 5000,
+      "image": "data/t3.png"
+    },
+    {
+      "name": "페퍼민트 티",
+      "price": 5000,
+      "image": "data/t4.png"
+    },
+    {
+      "name": "레몬티",
+      "price": 5500,
+      "image": "data/t5.png"
+    },
+    {
+      "name": "얼그레이 레몬티",
+      "price": 5500,
+      "image": "data/t6.png"
+    }
+  ],
+  "ade": [
+    {
+      "name": "레몬 에이드",
+      "price": 6000,
+      "image": "data/a1.png"
+    },
+    {
+      "name": "체리 에이드",
+      "price": 6000,
+      "image": "data/a2.png"
+    }
+  ],
+  "dessert": [
+    {
+      "name": "치즈 케이크",
+      "price": 6500,
+      "image": "data/d1.png"
+    },
+    {
+      "name": "베리 와플",
+      "price": 6500,
+      "image": "data/d2.png"
+    }
+  ]
+}

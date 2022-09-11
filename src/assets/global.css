@@ -1,5 +1,12 @@
+@import url('//cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
 html,
 body,
 #root {
   height: 100%;
+}
+
+* {
+  word-wrap: break-word;
+  word-break: keep-all;
 }

@@ -38,6 +38,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chakra-ui/system", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:2.2.9"],\
             ["@emotion/react", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:11.10.0"],\
             ["@emotion/styled", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:11.10.0"],\
+            ["@esbuild-plugins/node-globals-polyfill", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.1"],\
+            ["@esbuild-plugins/node-modules-polyfill", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.4"],\
             ["@types/node", "npm:18.7.14"],\
             ["@types/react", "npm:18.0.17"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -52,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:18.2.0"],\
             ["react-router-dom", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:6.3.0"],\
+            ["rollup-plugin-node-polyfills", "npm:0.2.1"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["vite", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:3.0.7"],\
             ["zustand", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:4.1.0"]\
@@ -2548,6 +2551,52 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@esbuild-plugins/node-globals-polyfill", [\
+        ["npm:0.1.1", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-plugins-node-globals-polyfill-virtual-6da775e3d7/node_modules/@esbuild-plugins/node-globals-polyfill/",\
+          "packageDependencies": [\
+            ["@esbuild-plugins/node-globals-polyfill", "npm:0.1.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.1", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-plugins-node-globals-polyfill-virtual-6da775e3d7/node_modules/@esbuild-plugins/node-globals-polyfill/",\
+          "packageDependencies": [\
+            ["@esbuild-plugins/node-globals-polyfill", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.1"],\
+            ["@types/esbuild", null],\
+            ["esbuild", null]\
+          ],\
+          "packagePeers": [\
+            "@types/esbuild",\
+            "esbuild"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild-plugins/node-modules-polyfill", [\
+        ["npm:0.1.4", {\
+          "packageLocation": "./.yarn/cache/@esbuild-plugins-node-modules-polyfill-npm-0.1.4-3fbc582225-39ff2a8161.zip/node_modules/@esbuild-plugins/node-modules-polyfill/",\
+          "packageDependencies": [\
+            ["@esbuild-plugins/node-modules-polyfill", "npm:0.1.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.4", {\
+          "packageLocation": "./.yarn/__virtual__/@esbuild-plugins-node-modules-polyfill-virtual-f217dddcb4/0/cache/@esbuild-plugins-node-modules-polyfill-npm-0.1.4-3fbc582225-39ff2a8161.zip/node_modules/@esbuild-plugins/node-modules-polyfill/",\
+          "packageDependencies": [\
+            ["@esbuild-plugins/node-modules-polyfill", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.4"],\
+            ["@types/esbuild", null],\
+            ["esbuild", null],\
+            ["escape-string-regexp", "npm:4.0.0"],\
+            ["rollup-plugin-node-polyfills", "npm:0.2.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/esbuild",\
+            "esbuild"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@esbuild/linux-loong64", [\
         ["npm:0.14.54", {\
           "packageLocation": "./.yarn/unplugged/@esbuild-linux-loong64-npm-0.14.54-a70f90ee9a/node_modules/@esbuild/linux-loong64/",\
@@ -4293,6 +4342,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["estree-walker", [\
+        ["npm:0.6.1", {\
+          "packageLocation": "./.yarn/cache/estree-walker-npm-0.6.1-fe92d0e1f6-9d6f82a492.zip/node_modules/estree-walker/",\
+          "packageDependencies": [\
+            ["estree-walker", "npm:0.6.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["esutils", [\
         ["npm:2.0.3", {\
           "packageLocation": "./.yarn/cache/esutils-npm-2.0.3-f865beafd5-22b5b08f74.zip/node_modules/esutils/",\
@@ -5283,6 +5341,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["magic-string", [\
+        ["npm:0.25.9", {\
+          "packageLocation": "./.yarn/cache/magic-string-npm-0.25.9-0b51c0ea50-9a0e55a15c.zip/node_modules/magic-string/",\
+          "packageDependencies": [\
+            ["magic-string", "npm:0.25.9"],\
+            ["sourcemap-codec", "npm:1.4.8"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.26.2", {\
           "packageLocation": "./.yarn/cache/magic-string-npm-0.26.2-999d3fee92-b4db4e2b37.zip/node_modules/magic-string/",\
           "packageDependencies": [\
@@ -5491,6 +5557,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chakra-ui/system", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:2.2.9"],\
             ["@emotion/react", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:11.10.0"],\
             ["@emotion/styled", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:11.10.0"],\
+            ["@esbuild-plugins/node-globals-polyfill", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.1"],\
+            ["@esbuild-plugins/node-modules-polyfill", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:0.1.4"],\
             ["@types/node", "npm:18.7.14"],\
             ["@types/react", "npm:18.0.17"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -5505,6 +5573,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:18.2.0"],\
             ["react-router-dom", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:6.3.0"],\
+            ["rollup-plugin-node-polyfills", "npm:0.2.1"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["vite", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:3.0.7"],\
             ["zustand", "virtual:b43a90577d9291f8387b552db994248b1c4cd30373b9540024d7fa7bacc010d5251a429af74929b6c86a12935d8ff70dac0df50d6e33f82c06ecf4a3c122b681#npm:4.1.0"]\
@@ -6243,6 +6312,38 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["rollup", "npm:2.77.3"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["rollup-plugin-inject", [\
+        ["npm:3.0.2", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-inject-npm-3.0.2-db1d368b18-a014972c80.zip/node_modules/rollup-plugin-inject/",\
+          "packageDependencies": [\
+            ["rollup-plugin-inject", "npm:3.0.2"],\
+            ["estree-walker", "npm:0.6.1"],\
+            ["magic-string", "npm:0.25.9"],\
+            ["rollup-pluginutils", "npm:2.8.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["rollup-plugin-node-polyfills", [\
+        ["npm:0.2.1", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-node-polyfills-npm-0.2.1-d0e4f85f30-e84645212c.zip/node_modules/rollup-plugin-node-polyfills/",\
+          "packageDependencies": [\
+            ["rollup-plugin-node-polyfills", "npm:0.2.1"],\
+            ["rollup-plugin-inject", "npm:3.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["rollup-pluginutils", [\
+        ["npm:2.8.2", {\
+          "packageLocation": "./.yarn/cache/rollup-pluginutils-npm-2.8.2-f554dd6ac5-339fdf866d.zip/node_modules/rollup-pluginutils/",\
+          "packageDependencies": [\
+            ["rollup-pluginutils", "npm:2.8.2"],\
+            ["estree-walker", "npm:0.6.1"]\
           ],\
           "linkType": "HARD"\
         }]\
