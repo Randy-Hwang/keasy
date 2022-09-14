@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InternalOrderPageProps } from '../Order';
+import { InternalOrderPageProps } from '../CafeOrder';
 
 const CoffeeOrderPage = ({ data, target }: InternalOrderPageProps) => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const CoffeeOrderPage = ({ data, target }: InternalOrderPageProps) => {
     let currentData: Partial<Coffee> & { amount?: number } = current;
     currentData.name = target.name;
     if (hot > 0) {
-      currentData.ice = undefined;
+      delete currentData.ice;
     }
     currentData.amount = hot !== 0 ? hot : cold;
     currentData.temperature = target.temperature;
@@ -85,7 +85,7 @@ const CoffeeOrderPage = ({ data, target }: InternalOrderPageProps) => {
           </Text>
           <Flex gap="6px" justifyContent="center" alignItems="center">
             <Button
-              disabled={!['all', 'hot'].includes(target.temperature)}
+              disabled={!['all', 'hot'].includes(data.temperature)}
               bgColor={
                 !['all', 'hot'].includes(data.temperature) ? '#4A4A4A' : 'main'
               }
@@ -258,10 +258,10 @@ const CoffeeOrderPage = ({ data, target }: InternalOrderPageProps) => {
             }}
           >
             <Stack direction="row" gap="5px">
-              <Radio value="normal" minW="110px">
+              <Radio value="small" minW="110px">
                 기본
               </Radio>
-              <Radio value="small" minW="110px">
+              <Radio value="normal" minW="110px">
                 중간
               </Radio>
               <Radio value="large" minW="110px">

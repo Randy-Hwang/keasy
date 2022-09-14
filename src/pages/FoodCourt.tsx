@@ -1,14 +1,9 @@
 import MissionHeader from '@/components/MissionHeader';
-import AdePanel from '@/panels/AdePanel';
-import CoffeePanel from '@/panels/CoffeePanel';
-import DessertPanel from '@/panels/DessertPanel';
-import JuicePanel from '@/panels/JuicePanel';
-import SuggestPanel from '@/panels/SuggestPanel';
-import TeaPanel from '@/panels/TeaPanel';
-import TrendPanel from '@/panels/TrendPanel';
+import FoodPanel from '@/panels/FoodPanel';
 import useOrderStore from '@/stores/orderStore';
 import useTaskStore from '@/stores/taskStore';
-import { Beverage, describeBeverage } from '@/types/Beverage';
+import { describeBeverage } from '@/types/Beverage';
+import { Food } from '@/types/Food';
 import { isEqual } from '@/utils/equal';
 import { ChevronRightIcon, CloseIcon } from '@chakra-ui/icons';
 import {
@@ -29,7 +24,7 @@ import HeaderWhite from '../components/HeaderWhite';
 import Wrapper from '../components/Wrapper';
 import dataFile from '../data.json';
 
-const Cafe = () => {
+const FoodCourt = () => {
   const navigate = useNavigate();
 
   const [selection, setSelection] = useState(0);
@@ -37,7 +32,7 @@ const Cafe = () => {
   const { task, setTask, level } = useTaskStore();
 
   if (!task) {
-    setTask('cafe', level);
+    setTask('foodcourt', level);
   }
 
   const { orders, deleteOrder } = useOrderStore();
@@ -53,57 +48,41 @@ const Cafe = () => {
   switch (selection) {
     case 0:
       CurrentPanel = (
-        <SuggestPanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['suggest']}
+        <FoodPanel
+          targets={task.result as (Food & { amount: number })[]}
+          data={dataFile['foodcourt']['korean']}
+          category="korean"
+          categoryName="한식"
         />
       );
       break;
     case 1:
       CurrentPanel = (
-        <TrendPanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['trend']}
+        <FoodPanel
+          targets={task.result as (Food & { amount: number })[]}
+          data={dataFile['foodcourt']['japanese']}
+          category="japanese"
+          categoryName="일식"
         />
       );
       break;
     case 2:
       CurrentPanel = (
-        <CoffeePanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['coffee']}
+        <FoodPanel
+          targets={task.result as (Food & { amount: number })[]}
+          data={dataFile['foodcourt']['western']}
+          category="western"
+          categoryName="양식"
         />
       );
       break;
     case 3:
       CurrentPanel = (
-        <JuicePanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['juice']}
-        />
-      );
-      break;
-    case 4:
-      CurrentPanel = (
-        <TeaPanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['tea']}
-        />
-      );
-      break;
-    case 5:
-      CurrentPanel = (
-        <AdePanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['ade']}
-        />
-      );
-      break;
-    case 6:
-      CurrentPanel = (
-        <DessertPanel
-          targets={task.result as (Beverage & { amount: number })[]}
-          data={dataFile['cafe']['dessert']}
+        <FoodPanel
+          targets={task.result as (Food & { amount: number })[]}
+          data={dataFile['foodcourt']['beverages']}
+          category="beverages"
+          categoryName="음료"
         />
       );
       break;
@@ -123,13 +102,10 @@ const Cafe = () => {
       >
         <Tabs index={selection} onChange={(index) => setSelection(index)}>
           <TabList color="main" border="none">
-            <Tab>추천</Tab>
-            <Tab>인기</Tab>
-            <Tab>커피</Tab>
-            <Tab>주스/스무디</Tab>
-            <Tab>티</Tab>
-            <Tab>에이드</Tab>
-            <Tab>빵/디저트</Tab>
+            <Tab w="176px">한식</Tab>
+            <Tab w="176px">일식</Tab>
+            <Tab w="176px">양식</Tab>
+            <Tab w="176px">음료</Tab>
           </TabList>
         </Tabs>
       </GridItem>
@@ -265,4 +241,4 @@ const Cafe = () => {
   );
 };
 
-export default Cafe;
+export default FoodCourt;

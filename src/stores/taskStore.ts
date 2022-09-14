@@ -1,12 +1,13 @@
 import missions from '../missions.json';
 
 import { Beverage } from '@/types/Beverage';
+import { Food } from '@/types/Food';
 import create from 'zustand';
 
 type TaskStore = {
   task: {
     mission: string;
-    result: (Beverage & { amount: number })[];
+    result: ((Beverage | Food) & { amount: number })[];
   } | null;
   level: number;
   setTask: (type: 'cafe' | 'foodcourt', level: number) => void;
@@ -27,10 +28,12 @@ const useTaskStore = create<TaskStore>((set) => ({
 
     const mission = missions[type][level - 1][selection];
 
+    console.log(mission);
+
     set({
       task: {
         mission: mission.mission,
-        result: mission.result as (Beverage & { amount: number })[],
+        result: mission.result as ((Beverage | Food) & { amount: number })[],
       },
     });
   },

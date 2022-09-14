@@ -1,10 +1,12 @@
 import { Beverage } from '@/types/Beverage';
+import { Food } from '@/types/Food';
 import create from 'zustand';
 
 type OrderStore = {
-  orders: { order: Beverage; amount: number }[];
-  putOrder: (order: Beverage, amount: number) => void;
+  orders: { order: Beverage | Food; amount: number }[];
+  putOrder: (order: Beverage | Food, amount: number) => void;
   deleteOrder: (index: number) => void;
+  clearOrder: () => void;
 };
 
 const useOrderStore = create<OrderStore>((set) => ({
@@ -24,6 +26,9 @@ const useOrderStore = create<OrderStore>((set) => ({
 
       return { orders: ordersData };
     });
+  },
+  clearOrder: () => {
+    set({ orders: [] });
   },
 }));
 
