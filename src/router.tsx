@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Cafe from './pages/Cafe';
+import FinishPage from './pages/Finish';
 import Home from './pages/Home';
 import HowToUse from './pages/HowToUse';
 import Onboard from './pages/Onboard';
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/cafe/ade" element={<OrderPage />} />
         <Route path="/cafe/dessert" element={<OrderPage />} />
         {/* <Route path="/foodcourt" element={<Mission />} /> */}
+        <Route path="/finish" element={<FinishPage />} />
       </Routes>
     </BrowserRouter>
   );
