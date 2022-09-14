@@ -1,15 +1,17 @@
+import useOrderStore from '@/stores/orderStore';
 import { Beverage } from '@/types/Beverage';
 import { Box, Flex, GridItem, Heading, Text, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 type TrendPanelProps = {
   data: { name: string; type: string; price: number; image: string }[];
-  target: Beverage;
+  targets: (Beverage & { amount: number })[];
 };
 
-const TrendPanel = ({ data, target }: TrendPanelProps) => {
+const TrendPanel = ({ data, targets }: TrendPanelProps) => {
   const navigate = useNavigate();
   const toast = useToast();
+  const { orders } = useOrderStore();
 
   return (
     <>
@@ -33,10 +35,29 @@ const TrendPanel = ({ data, target }: TrendPanelProps) => {
         rowSpan={350}
         cursor="pointer"
         onClick={() => {
-          if (data[0].name !== target.name) {
+          if (
+            !targets.find(
+              (tgt) => tgt.type === data[0].type && tgt.name === data[0].name
+            )
+          ) {
             toast({
               title: '주의',
               description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          if (
+            orders.find(
+              (order) =>
+                order.order.type === data[0].type &&
+                order.order.name === data[0].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description:
+                '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
               status: 'error',
             });
             return;
@@ -63,10 +84,29 @@ const TrendPanel = ({ data, target }: TrendPanelProps) => {
         rowSpan={165}
         cursor="pointer"
         onClick={() => {
-          if (data[1].name !== target.name) {
+          if (
+            !targets.find(
+              (tgt) => tgt.type === data[1].type && tgt.name === data[1].name
+            )
+          ) {
             toast({
               title: '주의',
               description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          if (
+            orders.find(
+              (order) =>
+                order.order.type === data[1].type &&
+                order.order.name === data[1].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description:
+                '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
               status: 'error',
             });
             return;
@@ -93,10 +133,29 @@ const TrendPanel = ({ data, target }: TrendPanelProps) => {
         rowSpan={165}
         cursor="pointer"
         onClick={() => {
-          if (data[2].name !== target.name) {
+          if (
+            !targets.find(
+              (tgt) => tgt.type === data[2].type && tgt.name === data[2].name
+            )
+          ) {
             toast({
               title: '주의',
               description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          if (
+            orders.find(
+              (order) =>
+                order.order.type === data[2].type &&
+                order.order.name === data[2].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description:
+                '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
               status: 'error',
             });
             return;

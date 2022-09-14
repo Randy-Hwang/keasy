@@ -2,17 +2,17 @@ import { Beverage } from '@/types/Beverage';
 import create from 'zustand';
 
 type OrderStore = {
-  orders: { name: string; order: Beverage; amount: number }[];
-  putOrder: (name: string, order: Beverage, amount: number) => void;
+  orders: { order: Beverage; amount: number }[];
+  putOrder: (order: Beverage, amount: number) => void;
   deleteOrder: (index: number) => void;
 };
 
 const useOrderStore = create<OrderStore>((set) => ({
   orders: [],
-  putOrder: (name, order, amount) => {
+  putOrder: (order, amount) => {
     set((state) => {
       const newOrder = [...state.orders];
-      newOrder.push({ name, order, amount });
+      newOrder.push({ order, amount });
       return { orders: newOrder };
     });
   },

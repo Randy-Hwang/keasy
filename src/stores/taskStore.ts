@@ -1,12 +1,12 @@
 import missions from '../missions.json';
 
-import { Beverage, Coffee, Dessert, Juice, Tea } from '@/types/Beverage';
+import { Beverage } from '@/types/Beverage';
 import create from 'zustand';
 
 type TaskStore = {
   task: {
     mission: string;
-    result: Beverage | string;
+    result: (Beverage & { amount: number })[];
   } | null;
   level: number;
   setTask: (type: 'cafe' | 'foodcourt', level: number) => void;
@@ -26,53 +26,12 @@ const useTaskStore = create<TaskStore>((set) => ({
     const selection = randRange(0, missions[type][level - 1].length - 1);
 
     const mission = missions[type][level - 1][selection];
-    if (!['coffee', 'juice', 'tea', 'dessert'].includes(mission.result.type)) {
-      return;
-    }
-
-    if (mission.result.type === 'coffee') {
-      set({
-        task: {
-          mission: mission.mission,
-          result: mission.result as unknown as Coffee,
-        },
-      });
-
-      return;
-    }
-
-    if (mission.result.type === 'juice') {
-      set({
-        task: {
-          mission: mission.mission,
-          result: mission.result as unknown as Juice,
-        },
-      });
-
-      return;
-    }
-
-    if (mission.result.type === 'tea') {
-      set({
-        task: {
-          mission: mission.mission,
-          result: mission.result as unknown as Tea,
-        },
-      });
-
-      return;
-    }
-
-    if (mission.result.type === 'dessert') {
-      set({
-        task: {
-          mission: mission.mission,
-          result: mission.result as unknown as Dessert,
-        },
-      });
-
-      return;
-    }
+    set({
+      task: {
+        mission: mission.mission,
+        result: mission.result as (Beverage & { amount: number })[],
+      },
+    });
   },
   clear: () => {
     set({

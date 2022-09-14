@@ -17,17 +17,11 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import beverageData from '../../beverageData.json';
+import { useNavigate } from 'react-router-dom';
+import { InternalOrderPageProps } from '../Order';
 
-// 자 정리
-// 1. 라우터에서 받아온 쿼리: 사용자가 선택한 음료
-// 2. taskStore에서 받아온 task: 미션
-// 3. data에서 받아온 정보: 미션에서 확인한 정보
-// 보통 1 === 2 === 3임 (여기 들어올 때 확인함)
-const TeaOrderPage = () => {
+const TeaOrderPage = ({ data, target }: InternalOrderPageProps) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [hot, setHot] = useState(0);
   const [cold, setCold] = useState(0);
@@ -35,64 +29,25 @@ const TeaOrderPage = () => {
 
   const toast = useToast();
 
-  const queryRawData =
-    location.search.length === 0 ? [] : location.search.substring(1).split('&');
-
-  const queryData: { [key: string]: string } = {};
-  for (const query of queryRawData) {
-    const [key, value] = query.split('=');
-    queryData[key] = value;
-  }
-
   const { task, level } = useTaskStore();
   const { putOrder } = useOrderStore();
 
   const valid = useMemo(() => {
-    if (task === null) return false;
-    if (typeof task.result === 'string') return false;
-    if (task.result.type !== 'tea') return false;
-
-    const target = task.result;
-
-    if (!target) {
-      return false;
+    if (target.type !== 'tea') {
+      return null;
     }
 
-    // TODO: Check amount
-    if (hot !== 1 && cold !== 1) {
-      return false;
-    }
-
-    let currentData = current;
+    let currentData: Partial<Tea> & { amount?: number } = current;
     currentData.name = target.name;
     if (hot > 0) {
       currentData.ice = undefined;
     }
-    currentData.temperature = hot > 0 ? 'hot' : 'cold';
-
-    console.log(currentData);
-    console.log(target);
-
+    currentData.amount = hot !== 0 ? hot : cold;
+    currentData.temperature = target.temperature;
     return isEqual(currentData, target);
-  }, [hot, cold, current, task]);
+  }, [hot, cold, current]);
 
-  if (
-    !task ||
-    typeof task.result === 'string' ||
-    !queryData['name'] ||
-    task.result.type !== 'tea'
-  ) {
-    navigate('/home');
-    return null;
-  }
-
-  const target = task.result;
-
-  const data = beverageData[target.type].find(
-    (item) => item.name === target.name
-  );
-
-  if (!data) {
+  if (target.type !== 'tea') {
     navigate('/home');
     return null;
   }
@@ -158,8 +113,7 @@ const TeaOrderPage = () => {
                   });
                   return;
                 }
-                //TODO: Check Amount here
-                if (hot >= 1) {
+                if (hot >= target.amount) {
                   toast({
                     title: '주의',
                     description: '상단에 미션에서 메뉴를 다시 확인해주세요.',
@@ -209,8 +163,7 @@ const TeaOrderPage = () => {
                   });
                   return;
                 }
-                //TODO: Check Amount here
-                if (cold >= 1) {
+                if (cold >= target.amount) {
                   toast({
                     title: '주의',
                     description: '상단에 미션에서 메뉴를 다시 확인해주세요.',
@@ -336,7 +289,7 @@ const TeaOrderPage = () => {
           h="100%"
           disabled={!valid}
           onClick={() => {
-            putOrder(target.name, target, hot || cold);
+            putOrder(target, hot || cold);
             navigate('/cafe');
           }}
         >

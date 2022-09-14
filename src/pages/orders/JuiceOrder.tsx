@@ -17,68 +17,36 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import beverageData from '../../beverageData.json';
+import { useNavigate } from 'react-router-dom';
+import { InternalOrderPageProps } from '../Order';
 
-// 자 정리
-// 1. 라우터에서 받아온 쿼리: 사용자가 선택한 음료
-// 2. taskStore에서 받아온 task: 미션
-// 3. data에서 받아온 정보: 미션에서 확인한 정보
-// 보통 1 === 2 === 3임 (여기 들어올 때 확인함)
-const JuiceOrderPage = () => {
+const JuiceOrderPage = ({ data, target }: InternalOrderPageProps) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [amount, setAmount] = useState(0);
   const [current, setCurrent] = useState<Partial<Juice>>({ type: 'juice' });
 
   const toast = useToast();
 
-  const queryRawData =
-    location.search.length === 0 ? [] : location.search.substring(1).split('&');
-
-  const queryData: { [key: string]: string } = {};
-  for (const query of queryRawData) {
-    const [key, value] = query.split('=');
-    queryData[key] = value;
-  }
-
   const { task, level } = useTaskStore();
-  const { orders, putOrder } = useOrderStore();
+  const { putOrder } = useOrderStore();
 
   const valid = useMemo(() => {
-    if (task === null) return false;
-    if (typeof task.result === 'string') return false;
-    if (task.result.type !== 'juice') return false;
+    if (target.type !== 'juice') {
+      return null;
+    }
 
-    const target = task.result;
-
-    if (!target) {
+    if (amount !== target.amount) {
       return false;
     }
 
-    // TODO: Check amount
-    if (amount !== 1) {
-      return false;
-    }
-
-    let currentData = current;
+    let currentData: Partial<Juice> & { amount?: number } = current;
     currentData.name = target.name;
+    currentData.amount = target.amount;
     return isEqual(currentData, target);
   }, [amount, current, task]);
 
-  if (!task || typeof task.result === 'string' || !queryData['name']) {
-    navigate('/home');
-    return null;
-  }
-
-  const target = task.result as Juice;
-
-  const data = beverageData[target.type].find(
-    (item) => item.name === target.name
-  );
-
-  if (!data) {
+  if (target.type !== 'juice') {
     navigate('/home');
     return null;
   }
@@ -161,8 +129,7 @@ const JuiceOrderPage = () => {
               color="white"
               _hover={{ bgColor: 'main' }}
               onClick={() => {
-                //TODO: Check Amount here
-                if (amount >= 1) {
+                if (amount >= target.amount) {
                   toast({
                     title: '주의',
                     description: '상단에 미션에서 메뉴를 다시 확인해주세요.',
@@ -281,7 +248,7 @@ const JuiceOrderPage = () => {
           h="100%"
           disabled={!valid}
           onClick={() => {
-            putOrder(target.name, target, amount);
+            putOrder(target, amount);
             navigate('/cafe');
           }}
         >

@@ -8,7 +8,7 @@ import TeaPanel from '@/panels/TeaPanel';
 import TrendPanel from '@/panels/TrendPanel';
 import useOrderStore from '@/stores/orderStore';
 import useTaskStore from '@/stores/taskStore';
-import { Beverage, describeBeverage } from '@/types/Beverage';
+import { describeBeverage } from '@/types/Beverage';
 import { ChevronRightIcon, CloseIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -38,8 +38,6 @@ const Cafe = () => {
     setTask('cafe', level);
   }
 
-  console.log(task);
-
   const { orders, deleteOrder } = useOrderStore();
 
   if (!task) {
@@ -51,52 +49,37 @@ const Cafe = () => {
   switch (selection) {
     case 0:
       CurrentPanel = (
-        <SuggestPanel
-          target={task.result as Beverage}
-          data={beverageData['suggest']}
-        />
+        <SuggestPanel targets={task.result} data={beverageData['suggest']} />
       );
       break;
     case 1:
       CurrentPanel = (
-        <TrendPanel
-          target={task.result as Beverage}
-          data={beverageData['trend']}
-        />
+        <TrendPanel targets={task.result} data={beverageData['trend']} />
       );
       break;
     case 2:
       CurrentPanel = (
-        <CoffeePanel
-          target={task.result as Beverage}
-          data={beverageData['coffee']}
-        />
+        <CoffeePanel targets={task.result} data={beverageData['coffee']} />
       );
       break;
     case 3:
       CurrentPanel = (
-        <JuicePanel
-          target={task.result as Beverage}
-          data={beverageData['juice']}
-        />
+        <JuicePanel targets={task.result} data={beverageData['juice']} />
       );
       break;
     case 4:
       CurrentPanel = (
-        <TeaPanel target={task.result as Beverage} data={beverageData['tea']} />
+        <TeaPanel targets={task.result} data={beverageData['tea']} />
       );
       break;
     case 5:
       CurrentPanel = (
-        <AdePanel target={task.result as Beverage} data={beverageData['ade']} />
+        <AdePanel targets={task.result} data={beverageData['ade']} />
       );
       break;
     case 6:
       CurrentPanel = (
-        <DessertPanel
-          target={task.result as Beverage}
-          data={beverageData['dessert']}
-        />
+        <DessertPanel targets={task.result} data={beverageData['dessert']} />
       );
       break;
   }

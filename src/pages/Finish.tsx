@@ -7,8 +7,8 @@ const FinishPage = () => {
 
   return (
     <Center w="100%" h="100%">
-      <Center w="834px" h="1194px" bgColor="main">
-        <Box w="720px" h="1040px" rounded="10px" bgColor="white">
+      <Center w="834px" h="1194px" bgColor="main" p="60px">
+        <Box w="100%" h="100%" rounded="10px" bgColor="white">
           <Flex mt="150px" gap="10px">
             {[...Array(level)].map((_, i) => (
               <img key={i} src={StarMain} width="87px" height="87px" />

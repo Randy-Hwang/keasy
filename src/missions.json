@@ -3,10 +3,13 @@
     [
       {
         "mission": "디저트 테스트",
-        "result": {
-          "type": "dessert",
-          "name": "치즈 케이크"
-        }
+        "result": [
+          {
+            "type": "dessert",
+            "name": "치즈 케이크",
+            "amount": 1
+          }
+        ]
       }
     ],
     [],

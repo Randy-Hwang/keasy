@@ -1,17 +1,25 @@
 import useTaskStore from '@/stores/taskStore';
-import { useNavigate } from 'react-router-dom';
+import { Beverage } from '@/types/Beverage';
+import { useLocation, useNavigate } from 'react-router-dom';
 import beverageData from '../beverageData.json';
 import CoffeeOrderPage from './orders/CoffeeOrder';
 import DessertOrderPage from './orders/DessertOrder';
 import JuiceOrderPage from './orders/JuiceOrder';
 import TeaOrderPage from './orders/TeaOrder';
 
-// 1. 라우터에서 받아온 쿼리: 사용자가 선택한 음료
-// 2. taskStore에서 받아온 task: 미션
+type IndexType = 'ade' | 'coffee' | 'dessert' | 'juice' | 'tea';
+export type InternalOrderPageProps = {
+  data: { name: string; price: number; temperature: string };
+  target: Beverage & { amount: number };
+};
+
+// 1. 라우터에서 받아온 쿼리 (type & name nullable => null assertion?): 사용자가 선택한 음료 => target
+// 2. taskStore에서 받아온 task: 미션들 ({mission, result[]})
 // 3. data에서 받아온 정보: 미션에서 확인한 정보
 // 보통 1 === 2 === 3임 (여기 들어올 때 확인함)
 const OrderPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const queryRawData =
     location.search.length === 0 ? [] : location.search.substring(1).split('&');
@@ -22,43 +30,47 @@ const OrderPage = () => {
     queryData[key] = value;
   }
 
+  const name = queryData.name;
+  const type = location.pathname.split('/').pop();
+
+  // Hook must be called always
   const { task } = useTaskStore();
 
-  if (!task || typeof task.result === 'string' || !queryData['name']) {
+  if (!name || !type) {
     navigate('/home');
     return null;
   }
 
-  const target = task.result;
-
-  const data = beverageData[target.type].find(
-    (item) => item.name === target.name
+  // Find one target by name and type
+  const data = beverageData[type as IndexType].find(
+    (item) => item.name === name
   );
 
-  if (!data) {
+  const target = task?.result.find((t) => t.name === name && t.type === type);
+
+  if (!target || !data) {
     navigate('/home');
     return null;
   }
 
-  if (target.type === 'coffee') {
+  if (type === 'coffee') {
     if (data.temperature === 'none') {
-      return <DessertOrderPage />;
+      return <DessertOrderPage data={data} target={target} />;
     } else {
-      return <CoffeeOrderPage />;
+      return <CoffeeOrderPage data={data} target={target} />;
     }
   }
 
-  if (target.type === 'juice') {
-    return <JuiceOrderPage />;
+  if (type === 'juice') {
+    return <JuiceOrderPage data={data} target={target} />;
   }
 
-  if (target.type === 'tea') {
-    return <TeaOrderPage />;
+  if (type === 'tea') {
+    return <TeaOrderPage data={data} target={target} />;
   }
 
-  if (target.type === 'dessert') {
-    console.log('dessert');
-    return <DessertOrderPage />;
+  if (type === 'dessert') {
+    return <DessertOrderPage data={data} target={target} />;
   }
 
   return null;

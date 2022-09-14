@@ -1,3 +1,4 @@
+import useOrderStore from '@/stores/orderStore';
 import { Beverage } from '@/types/Beverage';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
@@ -14,14 +15,15 @@ import { useNavigate } from 'react-router-dom';
 
 type CoffeePanelProps = {
   data: { name: string; price: number; image: string }[];
-  target: Beverage;
+  targets: (Beverage & { amount: number })[];
 };
 
-const CoffeePanel = ({ data, target }: CoffeePanelProps) => {
+const CoffeePanel = ({ data, targets }: CoffeePanelProps) => {
   const pageCount = Math.ceil(data.length / 6);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const toast = useToast();
+  const { orders } = useOrderStore();
 
   const PrevBar =
     page > 1 ? (
@@ -82,10 +84,29 @@ const CoffeePanel = ({ data, target }: CoffeePanelProps) => {
             width="204px"
             cursor="pointer"
             onClick={() => {
-              if (item.name !== target.name) {
+              if (
+                !targets.find(
+                  (tgt) => tgt.type === 'coffee' && tgt.name === item.name
+                )
+              ) {
                 toast({
                   title: '주의',
                   description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+                  status: 'error',
+                });
+                return;
+              }
+              if (
+                orders.find(
+                  (order) =>
+                    order.order.type === 'coffee' &&
+                    order.order.name === item.name
+                )
+              ) {
+                toast({
+                  title: '주의',
+                  description:
+                    '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
                   status: 'error',
                 });
                 return;
