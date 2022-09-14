@@ -10,33 +10,49 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
-import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { InternalOrderPageProps } from '../CafeOrder';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import dataFile from '../data.json';
 
-const DessertOrderPage = ({ data, target }: InternalOrderPageProps) => {
+type IndexType = 'korean' | 'japanese' | 'western' | 'beverages';
+
+const FoodCourtOrderPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [amount, setAmount] = useState(0);
 
   const toast = useToast();
 
-  const { level } = useTaskStore();
+  const queryRawData =
+    location.search.length === 0 ? [] : location.search.substring(1).split('&');
+
+  const queryData: { [key: string]: string } = {};
+  for (const query of queryRawData) {
+    const [key, value] = query.split('=');
+    queryData[key] = value;
+  }
+
+  const name = decodeURI(queryData.name);
+  const type = location.pathname.split('/').pop();
+
+  // Hook must be called always
+  const { task, level } = useTaskStore();
   const { putOrder } = useOrderStore();
 
-  const valid = useMemo(() => {
-    if (target.type !== 'dessert') {
-      return false;
-    }
+  if (!name || !type) {
+    navigate('/home');
+    return null;
+  }
 
-    if (amount !== target.amount) {
-      return false;
-    }
+  // Find one target by name and type
+  const data = dataFile['foodcourt'][type as IndexType].find(
+    (item) => item.name === name
+  );
 
-    return true;
-  }, [amount]);
+  const target = task?.result.find((t) => t.name === name);
 
-  if (target.type !== 'dessert') {
+  if (!target || !data) {
     navigate('/home');
     return null;
   }
@@ -116,10 +132,10 @@ const DessertOrderPage = ({ data, target }: InternalOrderPageProps) => {
         <Button
           w="100%"
           h="100%"
-          disabled={!valid}
+          disabled={amount !== target.amount}
           onClick={() => {
             putOrder(target, amount);
-            navigate('/cafe');
+            navigate('/foodcourt');
           }}
         >
           확인
@@ -129,4 +145,4 @@ const DessertOrderPage = ({ data, target }: InternalOrderPageProps) => {
   );
 };
 
-export default DessertOrderPage;
+export default FoodCourtOrderPage;

@@ -1,3 +1,4 @@
+import useOrderStore from '@/stores/orderStore';
 import useTaskStore from '@/stores/taskStore';
 import { Flex, GridItem, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +10,7 @@ import Logo from '../assets/keasyLogo.svg';
 const HeaderWhite = () => {
   const navigate = useNavigate();
   const { clear } = useTaskStore();
+  const { clearOrder } = useOrderStore();
 
   return (
     <GridItem
@@ -26,6 +28,7 @@ const HeaderWhite = () => {
         w="160px"
         onClick={() => {
           clear();
+          clearOrder();
           navigate('/home');
         }}
         cursor="pointer"

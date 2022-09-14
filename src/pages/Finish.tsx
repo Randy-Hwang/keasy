@@ -1,4 +1,5 @@
 import StarMain from '@/assets/starMain.svg';
+import useOrderStore from '@/stores/orderStore';
 import useTaskStore from '@/stores/taskStore';
 import { Box, Button, Center, Flex, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const FinishPage = () => {
   const navigate = useNavigate();
   const { level, clear } = useTaskStore();
+  const { clearOrder } = useOrderStore();
 
   return (
     <Center w="100%" h="100%">
@@ -56,6 +58,7 @@ const FinishPage = () => {
               borderColor="main"
               onClick={() => {
                 clear();
+                clearOrder();
                 navigate('/home');
               }}
             >

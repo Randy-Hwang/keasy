@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InternalOrderPageProps } from '../Order';
+import { InternalOrderPageProps } from '../CafeOrder';
 
 const TeaOrderPage = ({ data, target }: InternalOrderPageProps) => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const TeaOrderPage = ({ data, target }: InternalOrderPageProps) => {
     let currentData: Partial<Tea> & { amount?: number } = current;
     currentData.name = target.name;
     if (hot > 0) {
-      currentData.ice = undefined;
+      delete currentData.ice;
     }
     currentData.amount = hot !== 0 ? hot : cold;
     currentData.temperature = target.temperature;
@@ -225,10 +225,10 @@ const TeaOrderPage = ({ data, target }: InternalOrderPageProps) => {
             }}
           >
             <Stack direction="row" gap="5px">
-              <Radio value="normal" minW="110px">
+              <Radio value="small" minW="110px">
                 기본
               </Radio>
-              <Radio value="small" minW="110px">
+              <Radio value="normal" minW="110px">
                 중간
               </Radio>
               <Radio value="large" minW="110px">

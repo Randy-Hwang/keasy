@@ -1,3 +1,5 @@
+import { Food } from './Food';
+
 export type Beverage = Coffee | Juice | Tea | Dessert;
 export type Coffee = {
   type: 'coffee';
@@ -86,7 +88,7 @@ export const SweetnessDescriptions = {
   more: '더 달게',
 };
 
-export const describeBeverage = (beverage: Beverage) => {
+export const describeBeverage = (beverage: Beverage | Food) => {
   if (beverage.type === 'coffee' && beverage.temperature === 'hot') {
     return `${SizeAdjectives[beverage.size]} 사이즈 / ${
       ShotAmountAdjectives[beverage.shot]
