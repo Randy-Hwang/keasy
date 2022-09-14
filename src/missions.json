@@ -2,18 +2,1061 @@
   "cafe": [
     [
       {
-        "mission": "디저트 테스트",
+        "mission": "차가운 아메리카노, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도로 1잔",
         "result": [
           {
-            "type": "dessert",
-            "name": "치즈 케이크",
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 아메리카노, 기본 사이즈, 기본 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 딸기 주스, 기본 사이즈, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "juice",
+            "name": "딸기 주스",
+            "size": "small",
+            "sweetness": "normal",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 얼그레이 레몬티, 기본 사이즈, 기본 얼음양으로 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "얼그레이 레몬티",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 얼그레이 레몬티, 기본 사이즈로 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "얼그레이 레몬티",
+            "temperature": "hot",
+            "size": "small",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 카페 라떼, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 카페 라떼, 기본 사이즈, 기본 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 콜드 브루, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "콜드 브루",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 요거트 스무디, 기본 사이즈, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "juice",
+            "name": "요거트 스무디",
+            "size": "small",
+            "sweetness": "normal",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 레몬 에이드, 기본 사이즈, 기본 얼음양으로 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "레몬 에이드",
+            "size": "small",
+            "ice": "normal",
             "amount": 1
           }
         ]
       }
     ],
-    [],
-    []
+    [
+      {
+        "mission": "차가운 아메리카노, 중간 사이즈, 기본 얼음양, 연한 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "cold",
+            "size": "normal",
+            "ice": "normal",
+            "shot": "less",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 카페 라떼, 기본 사이즈, 기본 샷, 기본 당도 1잔과, 따뜻한 아메리카노, 기본 사이즈, 기본 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 딸기 주스, 기본 사이즈, 기본 당도 1잔과, 치즈케이크 1개",
+        "result": [
+          {
+            "type": "juice",
+            "name": "딸기 주스",
+            "size": "small",
+            "sweetness": "normal",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "치즈케이크",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 레몬티, 기본 사이즈, 기본 얼음양 1잔과, 베리 와플 1개",
+        "result": [
+          {
+            "type": "tea",
+            "name": "레몬티",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "베리 와플",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 페퍼민트 티, 중간 사이즈, 많은 얼음양 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "페퍼민트 티",
+            "temperature": "cold",
+            "size": "normal",
+            "ice": "more",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 초코 스무디, 큰 사이즈, 덜 달게 1잔",
+        "result": [
+          {
+            "type": "juice",
+            "name": "초코 스무디",
+            "size": "large",
+            "sweetness": "less",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 아메리카노, 큰 사이즈, 샷 추가, 헤이즐넛 시럽 추가 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "hot",
+            "size": "large",
+            "shot": "more",
+            "syrup": "hazelnut",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 얼그레이 레몬티, 기본 사이즈 1잔과, 차가운 캐모마일 티, 기본 사이즈, 기본 얼음양 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "얼그레이 레몬티",
+            "temperature": "hot",
+            "size": "small",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "캐모마일 티",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 레몬 에이드, 기본 사이즈, 기본 얼음양 1잔과, 차가운 포도 주스, 기본 사이즈, 기본 당도 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "레몬 에이드",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          },
+          {
+            "type": "juice",
+            "name": "포도 주스",
+            "size": "small",
+            "sweetness": "normal",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 카페 모카, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도 1잔과, 베리 와플 1개",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "카페 모카",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "sweetness": "normal",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "베리 와플",
+            "amount": 1
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "mission": "차가운 카페 라떼, 큰 사이즈, 적은 얼음양, 연한 샷, 헤이즐넛 시럽 1잔과, 차가운 아메리카노, 중간 사이즈, 기본 얼음양, 샷 추가, 기본 당도 1잔과, 차가운 믹스베리 스무디, 중간 사이즈, 덜 달게 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "cold",
+            "size": "large",
+            "ice": "less",
+            "shot": "less",
+            "syrup": "hazelnut",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "cold",
+            "size": "normal",
+            "ice": "normal",
+            "shot": "more",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "juice",
+            "name": "믹스베리 스무디",
+            "size": "normal",
+            "sweetness": "less",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 아메리카노, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도 1잔과, 차가운 카페 라떼, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도 1잔과, 차가운 얼그레이 레몬티, 기본 사이즈, 기본 얼음양 1잔과, 차가운 홍차(얼그레이 티), 기본 사이즈, 기본 얼음양 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "얼그레이 레몬티",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "홍차 (얼그레이 티)",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 아인슈페너 블랙, 기본 사이즈, 기본 얼음양, 연한 샷, 기본 당도 1잔과, 차가운 캐모마일 티, 큰 사이즈, 적은 얼음양 1잔과, 치즈케이크 1개",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아인슈페너 블랙",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "less",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "캐모마일 티",
+            "temperature": "cold",
+            "size": "large",
+            "ice": "less",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "치즈케이크",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 믹스베리 스무디, 기본 사이즈, 기본 당도 1잔과, 차가운 녹차(그린티), 기본 사이즈, 기본 얼음양으로 1잔과, 따뜻한 레몬티, 큰 사이즈로 1잔",
+        "result": [
+          {
+            "type": "juice",
+            "name": "믹스베리 스무디",
+            "size": "normal",
+            "sweetness": "normal",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "녹차 (그린티)",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "레몬티",
+            "temperature": "hot",
+            "size": "large",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 아메리카노, 중간 사이즈, 많은 얼음양, 기본 샷, 기본 당도 1잔과, 따뜻한 카페라떼, 기본 사이즈, 기본 샷, 기본 당도 1잔과, 치즈케이크 1개",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "cold",
+            "size": "normal",
+            "ice": "more",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "치즈케이크",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 카라멜 마끼아또, 기본 사이즈, 기본 샷, 헤이즐넛 시럽 1잔과, 차가운 토마토 주스, 큰 사이즈, 기본 당도 1잔과, 차가운 체리 스무디, 기본 사이즈, 덜 달게 1잔",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "카라멜 마끼아또",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "hazelnut",
+            "amount": 1
+          },
+          {
+            "type": "juice",
+            "name": "토마토 주스",
+            "size": "large",
+            "sweetness": "normal",
+            "amount": 1
+          },
+          {
+            "type": "juice",
+            "name": "체리 스무디",
+            "size": "small",
+            "sweetness": "less",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 요거트 스무디, 기본 사이즈, 덜 달게 1잔과, 따뜻한 카페라떼, 큰 사이즈, 샷 추가, 기본 당도 1잔과, 치즈케이크 1개",
+        "result": [
+          {
+            "type": "juice",
+            "name": "요거트 스무디",
+            "size": "small",
+            "sweetness": "less",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "hot",
+            "size": "large",
+            "shot": "more",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "치즈케이크",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 체리 에이드, 기본 사이즈, 기본 얼음양 1잔과, 따뜻한 얼그레이 레몬티, 기본 사이즈 1잔과, 차가운 콜드 브루 라떼, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도 1잔과, 따뜻한 아메리카노, 기본 사이즈, 기본 샷, 기본 당도로 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "체리 에이드",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          },
+          {
+            "type": "tea",
+            "name": "얼그레이 레몬티",
+            "temperature": "hot",
+            "size": "small",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "콜드 브루 라떼",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "따뜻한 얼그레이 레몬티, 큰 사이즈 1잔과, 차가운 망고 스무디, 중간 사이즈, 덜 달게 1잔과, 치즈 케이크 1개",
+        "result": [
+          {
+            "type": "tea",
+            "name": "얼그레이 레몬티",
+            "temperature": "hot",
+            "size": "large",
+            "amount": 1
+          },
+          {
+            "type": "juice",
+            "name": "망고 스무디",
+            "size": "normal",
+            "sweetness": "less",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "치즈케이크",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 페퍼민트 티, 기본 사이즈, 기본 얼음양으로 1잔과, 차가운 토마토 주스, 큰 사이즈, 덜 달게 1잔, 베리 와플 1개",
+        "result": [
+          {
+            "type": "tea",
+            "name": "페퍼민트 티",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "normal",
+            "amount": 1
+          },
+          {
+            "type": "juice",
+            "name": "토마토 주스",
+            "size": "large",
+            "sweetness": "less",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "베리 와플",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 레몬 에이드, 기본 사이즈, 적은 얼음양 1잔과, 따뜻한 카푸치노, 중간 사이즈, 기본 샷, 기본 당도 1잔과, 따뜻한 카페 라떼, 기본 사이즈, 샷 추가, 헤이즐넛 시럽 추가 1잔",
+        "result": [
+          {
+            "type": "tea",
+            "name": "레몬 에이드",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "less",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "카푸치노",
+            "temperature": "hot",
+            "size": "normal",
+            "shot": "normal",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "more",
+            "syrup": "hazelnut",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "차가운 아메리카노, 기본 사이즈, 적은 얼음양, 샷 추가, 기본 당도 1잔과, 따뜻한 카페 라떼, 기본 사이즈, 샷 추가, 헤이즐넛 시럽 추가 1잔과, 치즈케이크 1개",
+        "result": [
+          {
+            "type": "coffee",
+            "name": "아메리카노",
+            "temperature": "cold",
+            "size": "small",
+            "ice": "less",
+            "shot": "more",
+            "syrup": "none",
+            "amount": 1
+          },
+          {
+            "type": "coffee",
+            "name": "카페 라떼",
+            "temperature": "hot",
+            "size": "small",
+            "shot": "more",
+            "syrup": "hazelnut",
+            "amount": 1
+          },
+          {
+            "type": "dessert",
+            "name": "치즈케이크",
+            "amount": 1
+          }
+        ]
+      }
+    ]
   ],
-  "foodcourt": []
+  "foodcourt": [
+    [
+      {
+        "mission": "김치볶음밥 1개",
+        "result": [
+          {
+            "name": "김치볶음밥",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "치즈돈까스 1개",
+        "result": [
+          {
+            "name": "치즈돈까스",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "김치찌개 1개",
+        "result": [
+          {
+            "name": "김치찌개",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "뚝배기 불고기 1개",
+        "result": [
+          {
+            "name": "뚝배기 불고기",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "비빔밥 1개",
+        "result": [
+          {
+            "name": "비빔밥",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "빠네크림파스타 1개",
+        "result": [
+          {
+            "name": "빠네크림파스타",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "우동 1개",
+        "result": [
+          {
+            "name": "우동",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "규동 1개",
+        "result": [
+          {
+            "name": "규동",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "라면 1개",
+        "result": [
+          {
+            "name": "라면",
+            "amount": 1
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "mission": "김밥 1개, 김치볶음밥 1개",
+        "result": [
+          {
+            "name": "김밥",
+            "amount": 1
+          },
+          {
+            "name": "김치볶음밥",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "라면 1개, 김밥 1개",
+        "result": [
+          {
+            "name": "라면",
+            "amount": 1
+          },
+          {
+            "name": "김밥",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "비빔밥 1개, 오므라이스 1개",
+        "result": [
+          {
+            "name": "비빔밥",
+            "amount": 1
+          },
+          {
+            "name": "오므라이스",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "돈까스 1개, 우동 1개",
+        "result": [
+          {
+            "name": "돈까스",
+            "amount": 1
+          },
+          {
+            "name": "우동",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "치즈돈까스 1개, 사이다 1개",
+        "result": [
+          {
+            "name": "치즈돈까스",
+            "amount": 1
+          },
+          {
+            "name": "사이다",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "스파게티 1개, 코카 콜라 1개",
+        "result": [
+          {
+            "name": "스파게티",
+            "amount": 1
+          },
+          {
+            "name": "코카 콜라",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "돈까스 1개, 햄버거 세트 1개",
+        "result": [
+          {
+            "name": "돈까스",
+            "amount": 1
+          },
+          {
+            "name": "햄버거 세트",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "라면 1개, 우동 1개",
+        "result": [
+          {
+            "name": "라면",
+            "amount": 1
+          },
+          {
+            "name": "우동",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "우동 1개, 사이다 1개",
+        "result": [
+          {
+            "name": "우동",
+            "amount": 1
+          },
+          {
+            "name": "사이다",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "된장찌개 1개, 뚝배기 불고기 1개",
+        "result": [
+          {
+            "name": "된장찌개",
+            "amount": 1
+          },
+          {
+            "name": "뚝배기 불고기",
+            "amount": 1
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "mission": "된장찌개 1개, 뚝배기 불고기 1개, 오므라이스 1개",
+        "result": [
+          {
+            "name": "된장찌개",
+            "amount": 1
+          },
+          {
+            "name": "뚝배기 불고기",
+            "amount": 1
+          },
+          {
+            "name": "오므라이스",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "라면 1개, 김밥 1개, 사이다 1개",
+        "result": [
+          {
+            "name": "라면",
+            "amount": 1
+          },
+          {
+            "name": "김밥",
+            "amount": 1
+          },
+          {
+            "name": "사이다",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "김치볶음밥 1개, 비빔밥 1개, 사이다 1개",
+        "result": [
+          {
+            "name": "김치볶음밥",
+            "amount": 1
+          },
+          {
+            "name": "비빔밥",
+            "amount": 1
+          },
+          {
+            "name": "사이다",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "햄버거 세트 1개, 치즈돈까스 1개, 코카 콜라 1개",
+        "result": [
+          {
+            "name": "햄버거 세트",
+            "amount": 1
+          },
+          {
+            "name": "치즈돈까스",
+            "amount": 1
+          },
+          {
+            "name": "코카 콜라",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "돈까스 1개, 우동 1개, 스파게티 1개",
+        "result": [
+          {
+            "name": "돈까스",
+            "amount": 1
+          },
+          {
+            "name": "우동",
+            "amount": 1
+          },
+          {
+            "name": "스파게티",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "오므라이스 1개, 스파게티 1개, 사이다 1개",
+        "result": [
+          {
+            "name": "오므라이스",
+            "amount": 1
+          },
+          {
+            "name": "스파게티",
+            "amount": 1
+          },
+          {
+            "name": "사이다",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "연어 덮밥 1개, 돈까스 카레 1개, 돈까스 1개",
+        "result": [
+          {
+            "name": "연어 덮밥",
+            "amount": 1
+          },
+          {
+            "name": "돈까스 카레",
+            "amount": 1
+          },
+          {
+            "name": "돈까스",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "햄버거 세트 1개, 스파게티 1개, 코카 콜라 1개",
+        "result": [
+          {
+            "name": "햄버거 세트",
+            "amount": 1
+          },
+          {
+            "name": "스파게티",
+            "amount": 1
+          },
+          {
+            "name": "코카 콜라",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "김치볶음밥 1개, 오므라이스 1개, 비빔밥 1개",
+        "result": [
+          {
+            "name": "김치볶음밥",
+            "amount": 1
+          },
+          {
+            "name": "오므라이스",
+            "amount": 1
+          },
+          {
+            "name": "비빔밥",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "mission": "연어 덮밥 1개, 비빔밥 1개, 코카 콜라 1개",
+        "result": [
+          {
+            "name": "연어 덮밥",
+            "amount": 1
+          },
+          {
+            "name": "비빔밥",
+            "amount": 1
+          },
+          {
+            "name": "코카 콜라",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  ]
 }
