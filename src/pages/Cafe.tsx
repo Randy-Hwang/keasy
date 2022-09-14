@@ -9,6 +9,7 @@ import TrendPanel from '@/panels/TrendPanel';
 import useOrderStore from '@/stores/orderStore';
 import useTaskStore from '@/stores/taskStore';
 import { describeBeverage } from '@/types/Beverage';
+import { isEqual } from '@/utils/equal';
 import { ChevronRightIcon, CloseIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -20,6 +21,7 @@ import {
   TabList,
   Tabs,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -39,6 +41,8 @@ const Cafe = () => {
   }
 
   const { orders, deleteOrder } = useOrderStore();
+
+  const toast = useToast();
 
   if (!task) {
     navigate('/home');
@@ -148,7 +152,7 @@ const Cafe = () => {
             p="16px"
           >
             <Text w="144px" fontWeight={600}>
-              {orders.length >= 1 ? orders[0].name : ''}
+              {orders.length >= 1 ? orders[0].order.name : ''}
             </Text>
             <Text flexGrow={1}>
               {orders.length >= 1 ? describeBeverage(orders[0].order) : ''}
@@ -167,7 +171,7 @@ const Cafe = () => {
             p="16px"
           >
             <Text w="144px" fontWeight={600}>
-              {orders.length >= 2 ? orders[1].name : ''}
+              {orders.length >= 2 ? orders[1].order.name : ''}
             </Text>
             <Text flexGrow={1}>
               {orders.length >= 2 ? describeBeverage(orders[1].order) : ''}
@@ -186,7 +190,7 @@ const Cafe = () => {
             p="16px"
           >
             <Text w="144px" fontWeight={600}>
-              {orders.length >= 3 ? orders[2].name : ''}
+              {orders.length >= 3 ? orders[2].order.name : ''}
             </Text>
             <Text flexGrow={1}>
               {orders.length >= 3 ? describeBeverage(orders[2].order) : ''}
@@ -204,6 +208,32 @@ const Cafe = () => {
             bgColor="white"
             rounded="6px"
             cursor="pointer"
+            onClick={() => {
+              let fullMatch = true;
+              for (const order of orders) {
+                let orderMatch = false;
+                for (const result of task.result) {
+                  console.log(order.order);
+                  console.log(result);
+                  if (isEqual(order.order, result)) {
+                    orderMatch = true;
+                    break;
+                  }
+                }
+                fullMatch = fullMatch && orderMatch;
+              }
+
+              if (!fullMatch) {
+                toast({
+                  title: '주의',
+                  description: '주문이 마무리되지 않았어요',
+                  status: 'error',
+                });
+                return;
+              }
+
+              navigate('/finish');
+            }}
           >
             <Text fontSize="16px" lineHeight="24px" color="main">
               결제하기

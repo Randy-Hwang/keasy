@@ -30,11 +30,13 @@ const OrderPage = () => {
     queryData[key] = value;
   }
 
-  const name = queryData.name;
+  const name = decodeURI(queryData.name);
   const type = location.pathname.split('/').pop();
 
   // Hook must be called always
   const { task } = useTaskStore();
+
+  console.log(task);
 
   if (!name || !type) {
     navigate('/home');
@@ -47,6 +49,11 @@ const OrderPage = () => {
   );
 
   const target = task?.result.find((t) => t.name === name && t.type === type);
+
+  console.log(name);
+  console.log(type);
+  console.log(data);
+  console.log(target);
 
   if (!target || !data) {
     navigate('/home');

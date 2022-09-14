@@ -1,15 +1,17 @@
 import StarMain from '@/assets/starMain.svg';
 import useTaskStore from '@/stores/taskStore';
 import { Box, Button, Center, Flex, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const FinishPage = () => {
-  const { level } = useTaskStore();
+  const navigate = useNavigate();
+  const { level, clear } = useTaskStore();
 
   return (
     <Center w="100%" h="100%">
       <Center w="834px" h="1194px" bgColor="main" p="60px">
         <Box w="100%" h="100%" rounded="10px" bgColor="white">
-          <Flex mt="150px" gap="10px">
+          <Flex mt="150px" gap="10px" justifyContent="center">
             {[...Array(level)].map((_, i) => (
               <img key={i} src={StarMain} width="87px" height="87px" />
             ))}
@@ -52,6 +54,10 @@ const FinishPage = () => {
               rounded="10px"
               border="1px solid"
               borderColor="main"
+              onClick={() => {
+                clear();
+                navigate('/home');
+              }}
             >
               홈으로 돌아가기
             </Button>

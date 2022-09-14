@@ -36,6 +36,8 @@ const DessertOrderPage = ({ data, target }: InternalOrderPageProps) => {
     return true;
   }, [amount]);
 
+  console.log(target);
+
   if (target.type !== 'dessert') {
     navigate('/home');
     return null;

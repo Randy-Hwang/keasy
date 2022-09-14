@@ -26,6 +26,7 @@ const useTaskStore = create<TaskStore>((set) => ({
     const selection = randRange(0, missions[type][level - 1].length - 1);
 
     const mission = missions[type][level - 1][selection];
+
     set({
       task: {
         mission: mission.mission,
