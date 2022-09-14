@@ -1,3 +1,4 @@
+import useTaskStore from '@/stores/taskStore';
 import { Flex, GridItem, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ import Logo from '../assets/keasyLogo.svg';
 
 const HeaderWhite = () => {
   const navigate = useNavigate();
+  const { clear } = useTaskStore();
 
   return (
     <GridItem
@@ -20,7 +22,14 @@ const HeaderWhite = () => {
       alignItems="center"
       px="20px"
     >
-      <Flex w="160px" onClick={() => navigate('/home')} cursor="pointer">
+      <Flex
+        w="160px"
+        onClick={() => {
+          clear();
+          navigate('/home');
+        }}
+        cursor="pointer"
+      >
         <img src={House} width="24" height="24" />
         <Text fontSize="16px" lineHeight="24px" color="subText" ml="8px">
           홈으로 돌아가기

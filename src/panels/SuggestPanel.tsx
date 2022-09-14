@@ -1,12 +1,17 @@
-import { Box, Flex, GridItem, Heading, Text } from '@chakra-ui/react';
+import useOrderStore from '@/stores/orderStore';
+import { Beverage } from '@/types/Beverage';
+import { Box, Flex, GridItem, Heading, Text, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 type SuggestPanelProps = {
   data: { name: string; type: string; price: number; image: string }[];
+  targets: (Beverage & { amount: number })[];
 };
 
-const SuggestPanel = ({ data }: SuggestPanelProps) => {
+const SuggestPanel = ({ data, targets }: SuggestPanelProps) => {
   const navigate = useNavigate();
+  const toast = useToast();
+  const { orders } = useOrderStore();
 
   return (
     <>
@@ -29,7 +34,36 @@ const SuggestPanel = ({ data }: SuggestPanelProps) => {
         rowStart={401}
         rowSpan={350}
         cursor="pointer"
-        onClick={() => navigate('/' + data[0].type + '?name=' + data[0].name)}
+        onClick={() => {
+          if (
+            !targets.find(
+              (tgt) => tgt.type === data[0].type && tgt.name === data[0].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          if (
+            orders.find(
+              (order) =>
+                order.order.type === data[0].type &&
+                order.order.name === data[0].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description:
+                '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
+              status: 'error',
+            });
+            return;
+          }
+          navigate('/cafe/' + data[0].type + '?name=' + data[0].name);
+        }}
       >
         <img src={data[0].image} width="100%" height="100%" />
         <Box shadow="cafe" w="100%" h="100%" flexGrow={1} p="15px">
@@ -49,7 +83,36 @@ const SuggestPanel = ({ data }: SuggestPanelProps) => {
         rowStart={401}
         rowSpan={165}
         cursor="pointer"
-        onClick={() => navigate('/' + data[1].type + '?name=' + data[1].name)}
+        onClick={() => {
+          if (
+            !targets.find(
+              (tgt) => tgt.type === data[1].type && tgt.name === data[1].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          if (
+            orders.find(
+              (order) =>
+                order.order.type === data[1].type &&
+                order.order.name === data[1].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description:
+                '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
+              status: 'error',
+            });
+            return;
+          }
+          navigate('/cafe/' + data[1].type + '?name=' + data[1].name);
+        }}
       >
         <img src={data[1].image} width="100%" height="100%" />
         <Box shadow="cafe" w="100%" h="100%" flexGrow={1} p="15px">
@@ -69,7 +132,36 @@ const SuggestPanel = ({ data }: SuggestPanelProps) => {
         rowStart={586}
         rowSpan={165}
         cursor="pointer"
-        onClick={() => navigate('/' + data[2].type + '?name=' + data[2].name)}
+        onClick={() => {
+          if (
+            !targets.find(
+              (tgt) => tgt.type === data[2].type && tgt.name === data[2].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          if (
+            orders.find(
+              (order) =>
+                order.order.type === data[2].type &&
+                order.order.name === data[2].name
+            )
+          ) {
+            toast({
+              title: '주의',
+              description:
+                '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
+              status: 'error',
+            });
+            return;
+          }
+          navigate('/cafe/' + data[2].type + '?name=' + data[2].name);
+        }}
       >
         <img src={data[2].image} width="100%" height="100%" />
         <Box shadow="cafe" w="100%" h="100%" flexGrow={1} p="15px">

@@ -160,7 +160,7 @@ const HowToUse = () => {
           rounded="5px"
           bgColor="main"
           cursor="pointer"
-          onClick={() => navigate('/home')}
+          onClick={() => navigate(-1)}
         >
           <Text
             color="white"

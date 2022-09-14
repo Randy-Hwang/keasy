@@ -1,16 +1,29 @@
+import useOrderStore from '@/stores/orderStore';
+import { Beverage } from '@/types/Beverage';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { Box, Center, Flex, GridItem, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Flex,
+  GridItem,
+  Heading,
+  Text,
+  useToast,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type CoffeePanelProps = {
   data: { name: string; price: number; image: string }[];
+  targets: (Beverage & { amount: number })[];
 };
 
-const CoffeePanel = ({ data }: CoffeePanelProps) => {
+const CoffeePanel = ({ data, targets }: CoffeePanelProps) => {
   const pageCount = Math.ceil(data.length / 6);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
+  const toast = useToast();
+  const { orders } = useOrderStore();
 
   const PrevBar =
     page > 1 ? (
@@ -67,9 +80,39 @@ const CoffeePanel = ({ data }: CoffeePanelProps) => {
       >
         {data.slice((page - 1) * 6, page * 6).map((item) => (
           <Box
+            key={item.name}
             width="204px"
             cursor="pointer"
-            onClick={() => navigate('/cafe/coffee?name=' + item.name)}
+            onClick={() => {
+              if (
+                !targets.find(
+                  (tgt) => tgt.type === 'coffee' && tgt.name === item.name
+                )
+              ) {
+                toast({
+                  title: '주의',
+                  description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+                  status: 'error',
+                });
+                return;
+              }
+              if (
+                orders.find(
+                  (order) =>
+                    order.order.type === 'coffee' &&
+                    order.order.name === item.name
+                )
+              ) {
+                toast({
+                  title: '주의',
+                  description:
+                    '이미 주문 내역에 담은 메뉴입니다. 미션을 다시 확인해주세요',
+                  status: 'error',
+                });
+                return;
+              }
+              navigate('/cafe/coffee?name=' + item.name);
+            }}
           >
             <img src={item.image} width="100%" height="100%" />
             <Box shadow="cafe" w="100%" p="15px">

@@ -1,3 +1,4 @@
+import MissionHeader from '@/components/MissionHeader';
 import AdePanel from '@/panels/AdePanel';
 import CoffeePanel from '@/panels/CoffeePanel';
 import DessertPanel from '@/panels/DessertPanel';
@@ -5,8 +6,11 @@ import JuicePanel from '@/panels/JuicePanel';
 import SuggestPanel from '@/panels/SuggestPanel';
 import TeaPanel from '@/panels/TeaPanel';
 import TrendPanel from '@/panels/TrendPanel';
-import { Beverage } from '@/types/Beverage';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import useOrderStore from '@/stores/orderStore';
+import useTaskStore from '@/stores/taskStore';
+import { describeBeverage } from '@/types/Beverage';
+import { isEqual } from '@/utils/equal';
+import { ChevronRightIcon, CloseIcon } from '@chakra-ui/icons';
 import {
   Box,
   Center,
@@ -17,144 +21,77 @@ import {
   TabList,
   Tabs,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import StarMain from '../assets/starMain.svg';
+import { useNavigate } from 'react-router-dom';
 import beverageData from '../beverageData.json';
 import HeaderWhite from '../components/HeaderWhite';
 import Wrapper from '../components/Wrapper';
-import missions from '../missions.json';
-
-const findJosa = (target: string) => {
-  const lastChar = target.charCodeAt(target.length - 1);
-  const hasLastCharacter = (lastChar - 0xac00) % 28;
-  return hasLastCharacter ? '을' : '를';
-};
-
-const randRange = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
 
 const Cafe = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const queryRawData =
-    location.search.length === 0 ? [] : location.search.substring(1).split('&');
-
-  const queryData: { [key: string]: string } = {};
-  for (const query of queryRawData) {
-    const [key, value] = query.split('=');
-    queryData[key] = value;
-  }
 
   const [selection, setSelection] = useState(0);
 
-  const [missionIndex, _] = useState<number>(
-    !Object.keys(queryData).includes('level')
-      ? 0
-      : randRange(0, Number(queryData.level) - 1)
-  );
+  const { task, setTask, level } = useTaskStore();
 
-  const [order1, setOrder1] = useState<{
-    name: string;
-    order: Beverage;
-    amount: number;
-  } | null>(null);
-  const [order2, setOrder2] = useState<{
-    name: string;
-    order: Beverage;
-    amount: number;
-  } | null>(null);
-  const [order3, setOrder3] = useState<{
-    name: string;
-    order: Beverage;
-    amount: number;
-  } | null>(null);
+  if (!task) {
+    setTask('cafe', level);
+  }
 
-  if (!Object.keys(queryData).includes('level')) {
+  const { orders, deleteOrder } = useOrderStore();
+
+  const toast = useToast();
+
+  if (!task) {
     navigate('/home');
     return null;
   }
 
-  const mission =
-    missions['cafe'][Number(queryData.level) - 1][missionIndex]['mission'];
-
   let CurrentPanel: React.ReactNode;
   switch (selection) {
     case 0:
-      CurrentPanel = <SuggestPanel data={beverageData['suggest']} />;
+      CurrentPanel = (
+        <SuggestPanel targets={task.result} data={beverageData['suggest']} />
+      );
       break;
     case 1:
-      CurrentPanel = <TrendPanel data={beverageData['trend']} />;
+      CurrentPanel = (
+        <TrendPanel targets={task.result} data={beverageData['trend']} />
+      );
       break;
     case 2:
-      CurrentPanel = <CoffeePanel data={beverageData['coffee']} />;
+      CurrentPanel = (
+        <CoffeePanel targets={task.result} data={beverageData['coffee']} />
+      );
       break;
     case 3:
-      CurrentPanel = <JuicePanel data={beverageData['juice']} />;
+      CurrentPanel = (
+        <JuicePanel targets={task.result} data={beverageData['juice']} />
+      );
       break;
     case 4:
-      CurrentPanel = <TeaPanel data={beverageData['tea']} />;
+      CurrentPanel = (
+        <TeaPanel targets={task.result} data={beverageData['tea']} />
+      );
       break;
     case 5:
-      CurrentPanel = <AdePanel data={beverageData['ade']} />;
+      CurrentPanel = (
+        <AdePanel targets={task.result} data={beverageData['ade']} />
+      );
       break;
     case 6:
-      CurrentPanel = <DessertPanel data={beverageData['dessert']} />;
+      CurrentPanel = (
+        <DessertPanel targets={task.result} data={beverageData['dessert']} />
+      );
       break;
   }
 
   return (
     <Wrapper grid={12}>
       <HeaderWhite />
-      <GridItem
-        as={Center}
-        colStart={1}
-        colSpan={4}
-        rowStart={101}
-        rowSpan={130}
-        bgColor="#EEE"
-      >
-        <Box>
-          <Flex gap="5px">
-            <Text>난이도</Text>
-            {[...Array(Number(queryData.level))].map((e) => {
-              return <img key={e} src={StarMain} width="11px" />;
-            })}
-          </Flex>
-          <Text
-            fontWeight={600}
-            fontSize="36px"
-            lineHeight="42.96px"
-            color="main"
-          >
-            첫 번째 미션
-          </Text>
-        </Box>
-      </GridItem>
-
-      <GridItem
-        as={Flex}
-        colStart={5}
-        colSpan={8}
-        rowStart={100}
-        rowSpan={130}
-        px="20px"
-        alignItems="center"
-      >
-        <Text
-          fontSize="22px"
-          lineHeight="30px"
-          color="main"
-          wordBreak="keep-all"
-        >
-          <strong>{mission}</strong>
-          {findJosa(mission)} 결제해 주세요
-        </Text>
-      </GridItem>
-
+      <MissionHeader start={101} level={level} />
       <GridItem
         as={Center}
         colStart={1}
@@ -205,6 +142,7 @@ const Cafe = () => {
           </GridItem>
           <GridItem
             as={Flex}
+            alignItems="center"
             colStart={2}
             colSpan={10}
             rowStart={61}
@@ -213,11 +151,17 @@ const Cafe = () => {
             rounded="6px"
             p="16px"
           >
-            <Text w="144px">{order1 ? order1.name : ''}</Text>
-            <Text flexGrow={1}>{order1 ? order1.name : ''}</Text>
+            <Text w="144px" fontWeight={600}>
+              {orders.length >= 1 ? orders[0].order.name : ''}
+            </Text>
+            <Text flexGrow={1}>
+              {orders.length >= 1 ? describeBeverage(orders[0].order) : ''}
+            </Text>
+            {orders.length >= 1 && <CloseIcon onClick={() => deleteOrder(0)} />}
           </GridItem>
           <GridItem
             as={Flex}
+            alignItems="center"
             colStart={2}
             colSpan={10}
             rowStart={141}
@@ -226,11 +170,17 @@ const Cafe = () => {
             rounded="6px"
             p="16px"
           >
-            <Text w="144px"></Text>
-            <Text flexGrow={1}></Text>
+            <Text w="144px" fontWeight={600}>
+              {orders.length >= 2 ? orders[1].order.name : ''}
+            </Text>
+            <Text flexGrow={1}>
+              {orders.length >= 2 ? describeBeverage(orders[1].order) : ''}
+            </Text>
+            {orders.length >= 2 && <CloseIcon onClick={() => deleteOrder(1)} />}
           </GridItem>
           <GridItem
             as={Flex}
+            alignItems="center"
             colStart={2}
             colSpan={10}
             rowStart={221}
@@ -239,8 +189,13 @@ const Cafe = () => {
             rounded="6px"
             p="16px"
           >
-            <Text w="144px"></Text>
-            <Text flexGrow={1}></Text>
+            <Text w="144px" fontWeight={600}>
+              {orders.length >= 3 ? orders[2].order.name : ''}
+            </Text>
+            <Text flexGrow={1}>
+              {orders.length >= 3 ? describeBeverage(orders[2].order) : ''}
+            </Text>
+            {orders.length >= 3 && <CloseIcon onClick={() => deleteOrder(2)} />}
           </GridItem>
           <GridItem
             as={Flex}
@@ -253,6 +208,32 @@ const Cafe = () => {
             bgColor="white"
             rounded="6px"
             cursor="pointer"
+            onClick={() => {
+              let fullMatch = true;
+              for (const order of orders) {
+                let orderMatch = false;
+                for (const result of task.result) {
+                  console.log(order.order);
+                  console.log(result);
+                  if (isEqual(order.order, result)) {
+                    orderMatch = true;
+                    break;
+                  }
+                }
+                fullMatch = fullMatch && orderMatch;
+              }
+
+              if (!fullMatch) {
+                toast({
+                  title: '주의',
+                  description: '주문이 마무리되지 않았어요',
+                  status: 'error',
+                });
+                return;
+              }
+
+              navigate('/finish');
+            }}
           >
             <Text fontSize="16px" lineHeight="24px" color="main">
               결제하기
