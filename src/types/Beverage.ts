@@ -1,24 +1,32 @@
-export type Beverage = Coffee | Juice | Tea;
+export type Beverage = Coffee | Juice | Tea | Dessert;
 export type Coffee = {
   type: 'coffee';
-  temperature: 'hot' | 'cold';
+  name: string;
   size: 'small' | 'normal' | 'large';
-  iceAmount: 'less' | 'normal' | 'more' | undefined;
-  shotAmount: 'normal' | 'less' | 'more';
+  temperature: 'hot' | 'cold';
+  ice: 'less' | 'normal' | 'more' | undefined;
+  shot: 'normal' | 'less' | 'more';
   syrup: 'hazelnut' | 'none';
 };
 
 export type Juice = {
   type: 'juice';
+  name: string;
   size: 'small' | 'normal' | 'large';
   sweetness: 'normal' | 'less' | 'more';
 };
 
 export type Tea = {
   type: 'tea';
+  name: string;
   temperature: 'hot' | 'cold';
   size: 'small' | 'normal' | 'large';
-  iceAmount: 'less' | 'normal' | 'more' | undefined;
+  ice: 'less' | 'normal' | 'more' | undefined;
+};
+
+export type Dessert = {
+  type: 'dessert';
+  name: string;
 };
 
 export const SizeDescriptions = {
@@ -63,8 +71,8 @@ export const ShotAmountAdjectives = {
 };
 
 export const SyrupDescriptions = {
-  hazelnut: '헤이즐넛 시럽 추가 +500원',
-  none: '기본',
+  hazelnut: '헤이즐넛 시럽 추가',
+  none: '기본 시럽',
 };
 
 export const SyrupAdjectives = {
@@ -72,7 +80,31 @@ export const SyrupAdjectives = {
   none: '기본',
 };
 
+export const SweetnessDescriptions = {
+  less: '덜 달게',
+  normal: '기본 당도',
+  more: '더 달게',
+};
+
 export const describeBeverage = (beverage: Beverage) => {
-  if (beverage.type === 'coffee') {
+  if (beverage.type === 'coffee' && beverage.temperature === 'hot') {
+    return `${SizeAdjectives[beverage.size]} 사이즈 / ${
+      ShotAmountAdjectives[beverage.shot]
+    } 샷 / ${SyrupDescriptions[beverage.syrup]}`;
+  }
+  if (beverage.type === 'coffee' && beverage.temperature === 'cold') {
+    return `${SizeAdjectives[beverage.size]} 사이즈 / ${
+      IceAmountAdjectives[beverage.ice!]
+    } 얼음양 / ${ShotAmountAdjectives[beverage.shot]} 샷 / ${
+      SyrupDescriptions[beverage.syrup]
+    }`;
+  }
+  if (beverage.type === 'juice') {
+    return `${SizeAdjectives[beverage.size]} 사이즈 / ${
+      SweetnessDescriptions[beverage.sweetness]
+    }`;
+  }
+  if (beverage.type === 'tea') {
+    return `${SizeAdjectives[beverage.size]} 사이즈`;
   }
 };

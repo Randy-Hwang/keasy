@@ -1,6 +1,7 @@
 import StarMain from '../assets/starMain.svg';
 import StarWhite from '../assets/starWhite.svg';
 
+import useTaskStore from '@/stores/taskStore';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import {
   Button,
@@ -41,6 +42,8 @@ const DifficultyModal = ({
     setSelection(-1);
     onClose();
   };
+
+  const { setLevel } = useTaskStore();
 
   return (
     <Modal isOpen={isOpen} onClose={close} isCentered>
@@ -115,7 +118,10 @@ const DifficultyModal = ({
               <ChevronRightIcon w="20px" h="20px" />
             </Button>
             <Button
-              onClick={() => navigate(target + '?level=' + selection)}
+              onClick={() => {
+                setLevel(selection);
+                navigate(target);
+              }}
               disabled={selection === -1}
               bgColor={selection === -1 ? 'gray.200' : 'main'}
               color={selection === -1 ? 'rgb(26,34,44)' : 'white'}

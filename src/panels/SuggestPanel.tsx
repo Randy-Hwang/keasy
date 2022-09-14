@@ -1,12 +1,15 @@
-import { Box, Flex, GridItem, Heading, Text } from '@chakra-ui/react';
+import { Beverage } from '@/types/Beverage';
+import { Box, Flex, GridItem, Heading, Text, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 type SuggestPanelProps = {
   data: { name: string; type: string; price: number; image: string }[];
+  target: Beverage;
 };
 
-const SuggestPanel = ({ data }: SuggestPanelProps) => {
+const SuggestPanel = ({ data, target }: SuggestPanelProps) => {
   const navigate = useNavigate();
+  const toast = useToast();
 
   return (
     <>
@@ -29,7 +32,17 @@ const SuggestPanel = ({ data }: SuggestPanelProps) => {
         rowStart={401}
         rowSpan={350}
         cursor="pointer"
-        onClick={() => navigate('/' + data[0].type + '?name=' + data[0].name)}
+        onClick={() => {
+          if (data[0].name !== target.name) {
+            toast({
+              title: '주의',
+              description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          navigate('/cafe/' + data[0].type + '?name=' + data[0].name);
+        }}
       >
         <img src={data[0].image} width="100%" height="100%" />
         <Box shadow="cafe" w="100%" h="100%" flexGrow={1} p="15px">
@@ -49,7 +62,17 @@ const SuggestPanel = ({ data }: SuggestPanelProps) => {
         rowStart={401}
         rowSpan={165}
         cursor="pointer"
-        onClick={() => navigate('/' + data[1].type + '?name=' + data[1].name)}
+        onClick={() => {
+          if (data[1].name !== target.name) {
+            toast({
+              title: '주의',
+              description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          navigate('/cafe/' + data[1].type + '?name=' + data[1].name);
+        }}
       >
         <img src={data[1].image} width="100%" height="100%" />
         <Box shadow="cafe" w="100%" h="100%" flexGrow={1} p="15px">
@@ -69,7 +92,17 @@ const SuggestPanel = ({ data }: SuggestPanelProps) => {
         rowStart={586}
         rowSpan={165}
         cursor="pointer"
-        onClick={() => navigate('/' + data[2].type + '?name=' + data[2].name)}
+        onClick={() => {
+          if (data[2].name !== target.name) {
+            toast({
+              title: '주의',
+              description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+              status: 'error',
+            });
+            return;
+          }
+          navigate('/cafe/' + data[2].type + '?name=' + data[2].name);
+        }}
       >
         <img src={data[2].image} width="100%" height="100%" />
         <Box shadow="cafe" w="100%" h="100%" flexGrow={1} p="15px">

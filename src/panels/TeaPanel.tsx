@@ -1,16 +1,27 @@
+import { Beverage } from '@/types/Beverage';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { Box, Center, Flex, GridItem, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Flex,
+  GridItem,
+  Heading,
+  Text,
+  useToast,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type TeaPanelProps = {
   data: { name: string; price: number; image: string }[];
+  target: Beverage;
 };
 
-const TeaPanel = ({ data }: TeaPanelProps) => {
+const TeaPanel = ({ data, target }: TeaPanelProps) => {
   const pageCount = Math.ceil(data.length / 6);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
+  const toast = useToast();
 
   const PrevBar =
     page > 1 ? (
@@ -67,9 +78,20 @@ const TeaPanel = ({ data }: TeaPanelProps) => {
       >
         {data.slice((page - 1) * 6, page * 6).map((item) => (
           <Box
+            key={item.name}
             width="204px"
             cursor="pointer"
-            onClick={() => navigate('/cafe/tea?name=' + item.name)}
+            onClick={() => {
+              if (item.name !== target.name) {
+                toast({
+                  title: '주의',
+                  description: '상단의 미션에서 메뉴를 다시 확인해 주세요',
+                  status: 'error',
+                });
+                return;
+              }
+              navigate('/cafe/tea?name=' + item.name);
+            }}
           >
             <img src={item.image} width="100%" height="100%" />
             <Box shadow="cafe" w="100%" p="15px">
