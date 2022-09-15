@@ -32,14 +32,14 @@ export type Dessert = {
 };
 
 export const SizeDescriptions = {
-  small: '작게',
-  normal: '기본',
+  small: '기본',
+  normal: '중간',
   large: '크게',
 };
 
 export const SizeAdjectives = {
-  small: '작은',
-  normal: '기본',
+  small: '기본',
+  normal: '중간',
   large: '큰',
 };
 
@@ -106,7 +106,12 @@ export const describeBeverage = (beverage: Beverage | Food) => {
       SweetnessDescriptions[beverage.sweetness]
     }`;
   }
-  if (beverage.type === 'tea') {
+  if (beverage.type === 'tea' && beverage.temperature === 'hot') {
     return `${SizeAdjectives[beverage.size]} 사이즈`;
+  }
+  if (beverage.type === 'tea' && beverage.temperature === 'cold') {
+    return `${SizeAdjectives[beverage.size]} 사이즈 / ${
+      IceAmountAdjectives[beverage.ice!]
+    } 얼음양`;
   }
 };
