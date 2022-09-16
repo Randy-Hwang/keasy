@@ -1,6 +1,6 @@
 import { Food } from './Food';
 
-export type Beverage = Coffee | Juice | Tea | Dessert;
+export type Beverage = Coffee | Juice | Ade | Tea | Dessert;
 export type Coffee = {
   type: 'coffee';
   name: string;
@@ -24,6 +24,13 @@ export type Tea = {
   temperature: 'hot' | 'cold';
   size: 'small' | 'normal' | 'large';
   ice: 'less' | 'normal' | 'more' | undefined;
+};
+
+export type Ade = {
+  type: 'ade';
+  name: string;
+  size: 'small' | 'normal' | 'large';
+  sweetness: 'normal' | 'less' | 'more';
 };
 
 export type Dessert = {
@@ -101,7 +108,7 @@ export const describeBeverage = (beverage: Beverage | Food) => {
       SyrupDescriptions[beverage.syrup]
     }`;
   }
-  if (beverage.type === 'juice') {
+  if (beverage.type === 'juice' || beverage.type === 'ade') {
     return `${SizeAdjectives[beverage.size]} 사이즈 / ${
       SweetnessDescriptions[beverage.sweetness]
     }`;

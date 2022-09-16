@@ -3,12 +3,13 @@ import { Beverage } from '@/types/Beverage';
 import { Food } from '@/types/Food';
 import { useLocation, useNavigate } from 'react-router-dom';
 import dataFile from '../data.json';
+import AdeOrderPage from './orders/AdeOrder';
 import CoffeeOrderPage from './orders/CoffeeOrder';
 import DessertOrderPage from './orders/DessertOrder';
 import JuiceOrderPage from './orders/JuiceOrder';
 import TeaOrderPage from './orders/TeaOrder';
 
-type IndexType = 'ade' | 'coffee' | 'dessert' | 'juice' | 'tea';
+type IndexType = 'ade' | 'coffee' | 'dessert' | 'juice' | 'tea' | 'ade';
 export type InternalOrderPageProps = {
   data: { name: string; price: number; temperature: string };
   target: (Beverage | Food) & { amount: number };
@@ -64,6 +65,10 @@ const CafeOrderPage = () => {
 
   if (type === 'juice') {
     return <JuiceOrderPage data={data} target={target} />;
+  }
+
+  if (type === 'ade') {
+    return <AdeOrderPage data={data} target={target} />;
   }
 
   if (type === 'tea') {

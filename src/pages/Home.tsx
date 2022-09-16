@@ -20,15 +20,6 @@ const Home = () => {
   const [selectionName, setSelectionName] = useState('');
   const [selection, setSelection] = useState('');
 
-  // const { isClicked, setIsClicked } = Clicked((state) => state);
-  // const { setClickedValue } = ClickedValue((state) => state);
-  // const { setClickedLevel } = ClickedLevel((state) => state);
-
-  // const handleClick = (store: 'cafe' | 'foodcourt') => {
-  //   setIsClicked(isClicked);
-  //   setClickedValue(store);
-  // };
-
   return (
     <>
       <Wrapper grid={12}>
@@ -121,12 +112,12 @@ const Home = () => {
           alignItems="center"
           cursor="pointer"
           onClick={() => {
-            setSelectionName('카페');
-            setSelection('/cafe');
+            setSelectionName('푸드코트');
+            setSelection('/foodcourt');
             openDifficultyDialog();
           }}
         >
-          <img src={Cafe} width="100%" />
+          <img src={FoodCourt} width="100%" />
         </GridItem>
         <GridItem
           colStart={7}
@@ -140,12 +131,12 @@ const Home = () => {
           alignItems="center"
           cursor="pointer"
           onClick={() => {
-            setSelectionName('푸드코트');
-            setSelection('/foodcourt');
+            setSelectionName('카페');
+            setSelection('/cafe');
             openDifficultyDialog();
           }}
         >
-          <img src={FoodCourt} width="100%" />
+          <img src={Cafe} width="100%" />
         </GridItem>
       </Wrapper>
       <DifficultyModal

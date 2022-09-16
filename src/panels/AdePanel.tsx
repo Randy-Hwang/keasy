@@ -1,5 +1,4 @@
 import useOrderStore from '@/stores/orderStore';
-import useTaskStore from '@/stores/taskStore';
 import { Beverage } from '@/types/Beverage';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
@@ -87,7 +86,7 @@ const AdePanel = ({ data, targets }: AdePanelProps) => {
             onClick={() => {
               if (
                 !targets.find(
-                  (tgt) => tgt.type === 'juice' && tgt.name === item.name
+                  (tgt) => tgt.type === 'ade' && tgt.name === item.name
                 )
               ) {
                 toast({
@@ -100,8 +99,7 @@ const AdePanel = ({ data, targets }: AdePanelProps) => {
               if (
                 orders.find(
                   (order) =>
-                    order.order.type === 'juice' &&
-                    order.order.name === item.name
+                    order.order.type === 'ade' && order.order.name === item.name
                 )
               ) {
                 toast({
