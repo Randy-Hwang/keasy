@@ -408,7 +408,7 @@
           {
             "type": "juice",
             "name": "믹스베리 스무디",
-            "size": "normal",
+            "size": "small",
             "sweetness": "normal",
             "amount": 1
           },
@@ -971,14 +971,14 @@
         ]
       },
       {
-        "mission": "연어 덮밥 1개, 돈까스 카레 1개, 돈까스 1개",
+        "mission": "연어 덮밥 1개, 우동 1개, 돈까스 1개",
         "result": [
           {
             "name": "연어 덮밥",
             "amount": 1
           },
           {
-            "name": "돈까스 카레",
+            "name": "우동",
             "amount": 1
           },
           {
