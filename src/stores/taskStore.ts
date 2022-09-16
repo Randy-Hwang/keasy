@@ -28,8 +28,6 @@ const useTaskStore = create<TaskStore>((set) => ({
 
     const mission = missions[type][level - 1][selection];
 
-    console.log(mission);
-
     set({
       task: {
         mission: mission.mission,

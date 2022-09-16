@@ -127,7 +127,7 @@
         "mission": "차가운 레몬 에이드, 기본 사이즈, 기본 당도로 1잔",
         "result": [
           {
-            "type": "juice",
+            "type": "ade",
             "name": "레몬 에이드",
             "size": "small",
             "sweetness": "normal",
@@ -273,7 +273,7 @@
         "mission": "차가운 레몬 에이드, 기본 사이즈, 기본 당도 1잔과, 차가운 포도 주스, 기본 사이즈, 기본 당도 1잔",
         "result": [
           {
-            "type": "juice",
+            "type": "ade",
             "name": "레몬 에이드",
             "size": "small",
             "sweetness": "normal",
@@ -524,7 +524,7 @@
         "mission": "차가운 체리 에이드, 기본 사이즈, 기본 당도 1잔과, 따뜻한 얼그레이 레몬티, 기본 사이즈 1잔과, 차가운 콜드 브루 라떼, 기본 사이즈, 기본 얼음양, 기본 샷, 기본 당도 1잔과, 따뜻한 아메리카노, 기본 사이즈, 기본 샷, 기본 당도로 1잔",
         "result": [
           {
-            "type": "juice",
+            "type": "ade",
             "name": "체리 에이드",
             "size": "small",
             "sweetness": "normal",
@@ -611,7 +611,7 @@
         "mission": "차가운 레몬 에이드, 기본 사이즈, 덜 달게 1잔과, 따뜻한 카푸치노, 중간 사이즈, 기본 샷, 기본 당도 1잔과, 따뜻한 카페 라떼, 기본 사이즈, 샷 추가, 헤이즐넛 시럽 추가 1잔",
         "result": [
           {
-            "type": "juice",
+            "type": "ade",
             "name": "레몬 에이드",
             "size": "small",
             "sweetness": "less",

@@ -231,9 +231,9 @@ const Cafe = () => {
             cursor="pointer"
             onClick={() => {
               let fullMatch = true;
-              for (const order of orders) {
+              for (const result of task.result) {
                 let orderMatch = false;
-                for (const result of task.result) {
+                for (const order of orders) {
                   if (isEqual(order.order, result)) {
                     orderMatch = true;
                     break;
